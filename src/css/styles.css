@@ -1,0 +1,9 @@
+@import url('./utilities.css');
+@import url('./variables.css');
+
+/* Partial CSS */
+@import url('./header.css');
+@import url('./all.categories.css');
+@import url('./support-ukraine.css');
+@import url('./home.css');
+@import url('./footer.css');
