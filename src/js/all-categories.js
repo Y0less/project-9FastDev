@@ -60,39 +60,49 @@ class BooksApiService {
 }
 
 const booksApiService = new BooksApiService();
-
+// fetch for all book categories  for sidebar
 async function fetchCategories() {
+  let data = null;
   try {
-    const data = await booksApiService.fetchCategoryList();
-    createMarkupBookCategory(data);
+    data = await booksApiService.fetchCategoryList();
+    // createMarkupBookCategory(data);
   } catch (error) {
     console.log(error);
   }
+  return data;
 }
-fetchCategories();
 
 // markup for all categories list in sidebar
-export function createMarkupBookCategory(arrBookCategories) {
-  const arrForMarkup = arrBookCategories.map(
-    ({ list_name: bookCategoryName }) => {
-      return `<li>
+
+async function createMarkupBookCategory() {
+  const bookCategories = await fetchCategories();
+  const arrForMarkup = bookCategories.map(({ list_name: bookCategoryName }) => {
+    return `<li>
           <span class="category">${bookCategoryName}</span>
                     </li>`;
-    }
-  );
+  });
   bookCategoriesList.innerHTML = arrForMarkup.join(' ');
 }
+createMarkupBookCategory();
 
 //function for add event listener for click on book category in sidebar
 bookCategoriesList.addEventListener('click', selectMarkupBookGroup);
+
+// fetch for all book in  category
+async function fetchBooksOfCategory(targetCategory) {
+  let data = null;
+  try {
+    data = await booksApiService.fetchCategory(targetCategory);
+  } catch (error) {
+    console.log(error);
+  }
+  return data;
+}
+
 async function selectMarkupBookGroup(evt) {
   if (evt.target.className === 'category') {
     const category = evt.target.textContent;
-    try {
-      const data = await booksApiService.fetchCategory(category);
-      createMarkupBookGroup(data, category);
-    } catch (error) {
-      console.log(error);
-    }
+    const booksOfCategory = await fetchBooksOfCategory(category);
+    createMarkupBookGroup(booksOfCategory, category);
   }
 }
