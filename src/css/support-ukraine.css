@@ -210,7 +210,7 @@ a {
   padding-bottom: 100px;
 }
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .catygories-support-books {
     display: flex;
   }
@@ -219,4 +219,4 @@ a {
     display: inline-flex;
     flex-direction: column;
     gap: 0px;
-  }
+ } */
