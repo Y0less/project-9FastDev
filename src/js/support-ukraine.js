@@ -1,1 +1,1 @@
-console.log('Hello Support Ukraine!');
+// console.log('Hello Support Ukraine!');
