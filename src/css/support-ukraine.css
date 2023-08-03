@@ -162,6 +162,12 @@ a {
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .shop-aside {
+    display: none;
+  }
+}
+
 /* @media (min-width: 1200px) {
   .catygories-support-books {
     display: flex;
@@ -172,7 +178,7 @@ a {
     flex-direction: column;
     gap: 0px;
  } */
-
+/* 
 .swiper-vertical > .swiper-wrapper {
   flex-direction: column;
-}
+} */
