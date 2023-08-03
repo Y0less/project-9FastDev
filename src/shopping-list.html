@@ -6,29 +6,21 @@
     <title>Bookshelf</title>
     <link rel="stylesheet" href="./sass/index.scss" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
   </head>
   <body>
     <!-- Header -->
     <include src="./partials/header.html"></include>
 
     <main>
-      <aside class="sidebar">
-        <!-- All Categories -->
-        <include src="./partials/all-categories.html"></include>
-
-        <!-- Support Ukraine -->
-        <include src="./partials/support-ukraine.html"></include>
-      </aside>
-
-      <!-- Home -->
-      <include src="./partials/home.html"></include>
+      <section class="shopping-list">
+        <div class="container">
+          <p class="shopping-list-title">Shopping List</p>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <include src="./partials/footer.html"></include>
-
-    <!-- Pop Up (Modal) -->
-    <include src="./partials/pop-up.html"></include>
   </body>
 </html>
