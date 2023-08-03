@@ -153,6 +153,15 @@ a {
   padding-bottom: 100px;
 }
 
+@media screen and (min-width: 1200px) {
+  .shop-aside {
+    width: 356px;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+  }
+}
+
 /* @media (min-width: 1200px) {
   .catygories-support-books {
     display: flex;
@@ -163,3 +172,7 @@ a {
     flex-direction: column;
     gap: 0px;
  } */
+
+.swiper-vertical > .swiper-wrapper {
+  flex-direction: column;
+}
