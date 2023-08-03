@@ -1,5 +1,3 @@
-// console.log('Hello Support Ukraine!');
-
 import Swiper from 'swiper';
 import '../../node_modules/swiper/swiper.scss';
 import { supportItems } from './support-items';
