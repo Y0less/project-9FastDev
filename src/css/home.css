@@ -1,30 +1,52 @@
+/* <h3 class="best-books-heder">${list_name}</h3>
+ <ul class="best-books-list"><li>
+ <img class="best-book-icon" src="${book_image}" alt="${title}" width=180px />
+ <h4 class="best-book-title">${title}</h4>
+ <span class="best-book-author">${author}</span></li>`;
+ </ul>
+ <button type="submit" id="${list_name}" class="best-books-btn">SEE MORE</button></div>`; */
+
 .home-title {
-    font-size: 26;
-    color: turquoise
+  color: #111;
+  font-family: DM Sans;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: -1.92px;
+  margin-bottom: 40px;
+}
+.home-title-part {
+  color: #4f2ee8;
+  font-family: DM Sans;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 52px;
+  letter-spacing: -1.92px;
 }
 
-
 .best-books {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .best-books-heder {
-    margin-bottom: 18px;
+  margin-bottom: 18px;
 }
 
 .best-books-list {
-    display: flex;
-    gap: 18px;
-    margin-bottom: 32px;
+  display: flex;
+  gap: 18px;
+  margin-bottom: 32px;
 }
 
 .best-books-btn {
-    display: block;
-    margin-left: auto;
+  display: block;
+  margin-left: auto;
 }
 
 .category-book-page {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
