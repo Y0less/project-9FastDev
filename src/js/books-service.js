@@ -50,4 +50,6 @@ class BooksApiService {
   }
 }
 
-export default BooksApiService;
+const booksApiService = new BooksApiService();
+
+export default booksApiService;
