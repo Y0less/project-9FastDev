@@ -85,12 +85,14 @@ export function createMarkupBookCategory(arrBookCategories) {
 
 //function for add event listener for click on book category in sidebar
 bookCategoriesList.addEventListener('click', selectMarkupBookGroup);
-function selectMarkupBookGroup(evt) {
+async function selectMarkupBookGroup(evt) {
   if (evt.target.className === 'category') {
     const category = evt.target.textContent;
-    booksApiService
-      .fetchCategory(category)
-      .then(data => createMarkupBookGroup(data, category))
-      .catch(err => console.log(err));
+    try {
+      const data = await booksApiService.fetchCategory(category);
+      createMarkupBookGroup(data, category);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }

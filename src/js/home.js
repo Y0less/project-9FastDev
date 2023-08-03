@@ -94,13 +94,16 @@ function createMarkupTopBooks(arrTopBooks) {
   buttons.forEach(btn => btn.addEventListener('click', loadMoreBooks));
 }
 //function for add event listener for click button SEE MORE
-function loadMoreBooks(evt) {
+async function loadMoreBooks(evt) {
   const targetCategory = evt.target.id;
   window.scrollTo(0, 0);
-  booksApiService
-    .fetchCategory(targetCategory)
-    .then(data => createMarkupBookGroup(data, targetCategory))
-    .catch(err => console.log(err));
+  try {
+    const data = await booksApiService.fetchCategory(targetCategory);
+    console.dir(data);
+    createMarkupBookGroup(data, targetCategory);
+  } catch (error) {
+    console.log(error);
+  }
 }
 // markup for  list books of category  on main page
 export function createMarkupBookGroup(data, groupName) {
