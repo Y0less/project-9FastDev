@@ -17,22 +17,28 @@ async function onBookClick(e) {
 
   try {
     const book = await booksApiService.fetchBookById(targetBook.id);
-    populateModalWin(book);
-    showModalWin();
+    populateModalWin(book, refs.modalWin);
+    showModalWin(refs.backdrop);
   } catch (error) {
     console.log(error);
   }
 }
 
-function populateModalWin(book) {
-  const { title, author, description, book_image, buy_links: buyLinks } = book;
-  const bookImage = refs.modalWin.querySelector('img');
-  const bookTitle = refs.modalWin.querySelector('.modal-book-title');
-  const bookAuthor = refs.modalWin.querySelector('.modal-book-author');
-  const bookDescription = refs.modalWin.querySelector(
-    '.modal-book-description'
-  );
-  const shopLinks = refs.modalWin.querySelectorAll('.modal-links-link');
+function populateModalWin(book, modalWin) {
+  const {
+    title,
+    author,
+    description,
+    book_image,
+    buy_links: buyLinks,
+    _id,
+  } = book;
+  const bookImage = modalWin.querySelector('img');
+  const bookTitle = modalWin.querySelector('.modal-book-title');
+  const bookAuthor = modalWin.querySelector('.modal-book-author');
+  const bookDescription = modalWin.querySelector('.modal-book-description');
+  const shopLinks = modalWin.querySelectorAll('a');
+  const addBtn = modalWin.querySelectorAll('.modal-add-btn');
   bookImage.src = book_image;
   bookImage.alt = title;
   bookTitle.textContent = title;
@@ -40,16 +46,15 @@ function populateModalWin(book) {
   bookDescription.textContent = description
     ? description
     : 'book description missing';
-  console.log(shopLinks);
-  console.log(refs.modalWin);
   shopLinks.forEach(link => {
     const shopLink = buyLinks.find(({ name }) =>
       name.toLowerCase().includes(link.id)
     ).url;
     link.href = shopLink;
   });
+  addBtn.id = _id;
 }
 
-function showModalWin() {
-  refs.backdrop.classList.remove('is-hidden');
+function showModalWin(element) {
+  element.classList.remove('is-hidden');
 }
