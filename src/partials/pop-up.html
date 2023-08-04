@@ -1,21 +1,59 @@
-<div class="backdrop">
+<div class="backdrop is-hidden">
   <div class="modal-window">
-    <button class="modal-window-close-dtn">X</button>
-    <img class="modal-img" src="#" alt="#" width="287" height="408" />
-    <p class="modal-book-title">Назва книги</p>
-    <p class="modal-book-author">Автор</p>
-    <p class="modal-book-description">Опис книги</p>
-    <ul class="modal-links-list">
-      <li class="modal-links-item">
-        <a class="modal-links-link" href="">посилання</a>
-      </li>
-      <li class="modal-links-item">
-        <a class="modal-links-link" href="">посилання</a>
-      </li>
-      <li class="modal-links-item">
-        <a class="modal-links-link" href="">посилання</a>
-      </li>
-    </ul>
+    <button class="modal-window-close-btn">
+      <svg class="modal-close-icon">
+        <use href="/src/images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="modal-wrapper">
+      <div class="modal-img-wrapper">
+        <img
+          class="modal-img"
+          src="/src/images/default-book-cover/default-desktop-book-cover.png"
+          alt="#"
+          width="287"
+          height="408"
+        />
+      </div>
+      <div class="modal-text-wrapper">
+        <p class="modal-book-title">HELLO BEAUTIFUL</p>
+        <p class="modal-book-author">Ann Napolitano</p>
+        <p class="modal-book-description">
+          In a homage to Louisa May Alcott’s “Little Women,” a young man’s dark
+          past resurfaces as he gets to the know the family of his college
+          sweetheart.
+        </p>
+        <ul class="modal-links-list">
+          <li class="modal-links-item">
+            <a id="amazon-link" class="modal-links-link" href="">
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/amazon.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="modal-links-item">
+            <a id="apple-link" class="modal-links-link" href="">
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/apple-books.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="modal-links-item">
+            <a id="bookshop-link" class="modal-links-link" href="">
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/bookshop.png"
+                alt=""
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
     <button class="modal-add-btn">add to shopping list</button>
   </div>
 </div>
