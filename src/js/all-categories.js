@@ -1,7 +1,6 @@
 // import booksApiService from './books-service';
 // // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 
-console.log('Hello All Categories');
 import { createMarkupBookGroup } from './home';
 const param = {
   bookCategoriesList: document.querySelector('.all-categories-list'),

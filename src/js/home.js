@@ -1,7 +1,5 @@
 import booksApiService from './books-service';
 // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
-
-// console.log('Hello Home!');
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
@@ -44,6 +42,7 @@ function createMarkupBooksList(bookslist) {
   return markupBooks;
 }
 // const image = imageFromBack ? imageFromBack : defaultImage;
+
 function createMarkupBookCategories(bookCategories, callback) {
   const arrForMarkup = bookCategories.map(({ books, list_name }) => {
     const markupCategories = `  <div class="best-books-sections">
