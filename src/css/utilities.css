@@ -1,52 +1,79 @@
 body {
-    font-family: "DMSans-Variable", sans-serif;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 1.29;
-    letter-spacing: -0.02em;
-    color: var(--black-color);
-    background-color: var(--body-color)
+  font-family: 'DMSans-Variable', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  background-color: rgba(255, 255, 255, 1);
 }
 
 /* Hide scrollbar for IE, Edge and Firefox */
 body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 body::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
-
+.white-theme-color-Allcategories {
+  color: rgba(17, 17, 17, 0.6);
+}
+.white-theme-color-Allcategories.black-theme {
+  color: rgba(255, 255, 255, 0.6);
+}
+.white-theme-color-Allcategories.black-theme:active {
+  color: rgba(234, 198, 69, 1);
+}
+.white-theme-color-main-text {
+  color: rgba(17, 17, 17, 1);
+}
+.white-theme-color-main-text.black-theme {
+  color: rgba(255, 255, 255, 1);
+}
+.white-theme-color-modal {
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(17, 17, 17, 1);
+}
+.white-theme-color-modal.black-theme {
+  background-color: rgba(17, 17, 17, 1);
+  border-color: rgba(255, 255, 255, 1);
+}
+.white-theme-color-svg {
+  fill: rgba(17, 17, 17, 1);
+}
+.white-theme-color-svg.black-theme {
+  fill: rgba(255, 255, 255, 1);
+}
 .container {
-    padding-left: 20px;
-    padding-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 /* Mobile responsive container */
 @media screen and (min-width: 375px) {
-    .container {
-        width: calc(335px + 2*20px);
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .container {
+    width: calc(335px + 2 * 20px);
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* Tablet adaptive container */
 @media screen and (min-width: 768px) {
-    .container {
-        width: calc(704px + 2*32px);
-        padding-left: 32px;
-        padding-right: 32px;
-    }
+  .container {
+    width: calc(704px + 2 * 32px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 /* Desktop adaptive container */
 @media screen and (min-width: 1440px) {
-    .container {
-        width: calc(1392px + 2*24px);
-        padding-left: 24px;
-        padding-right: 24px;
-    }
+  .container {
+    width: calc(1392px + 2 * 24px);
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
