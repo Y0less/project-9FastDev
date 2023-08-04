@@ -1,3 +1,4 @@
+//обробити помилку запиту
 import booksApiService from './books-service';
 
 const refs = {
@@ -57,4 +58,5 @@ function populateModalWin(book, modalWin) {
 
 function showModalWin(element) {
   element.classList.remove('is-hidden');
+  document.body.style.overflow = '';
 }
