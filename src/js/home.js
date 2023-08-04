@@ -1,7 +1,7 @@
 import booksApiService from './books-service';
 // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 
-console.log('Hello Home!');
+// console.log('Hello Home!');
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
@@ -34,16 +34,16 @@ function addEventListenerForBTN() {
   buttons.forEach(btn => btn.addEventListener('click', handleBtnClick));
 }
 function createMarkupBooksList(bookslist) {
-  const markupBooks = bookslist.map(({ author, book_image, title }) => {
-    return ` <li>
-                    <img class="best-book-icon" src="${book_image}" alt="${title}" width = 180px />
+  const markupBooks = bookslist.map(({ author, book_image, title, _id }) => {
+    return ` <li id=${_id} class="js-book best-books-link">
+                    <img class="best-book-icon" src="${book_image}" alt="${title}"/>
                     <h3 class="best-book-title">${title}</h3>
-                    <span class="best-book-author">${author}</span>
+                    <p class="best-book-author">${author}</p>
                   </li>`;
   });
   return markupBooks;
 }
-
+// const image = imageFromBack ? imageFromBack : defaultImage;
 function createMarkupBookCategories(bookCategories, callback) {
   const arrForMarkup = bookCategories.map(({ books, list_name }) => {
     const markupCategories = `  <div class="best-books-sections">
@@ -108,11 +108,11 @@ export function changeBooksPositioning() {
 }
 
 export function createBookGroupPage(books) {
-  const markup = books.map(({ author, book_image, title }) => {
-    return ` <li>
-                    <img class="best-book-icon" src="${book_image}" alt="${title}" width = 180px />
-                    <h4 class="best-book-title">${title}</h4>
-                    <span class="best-book-author">${author}</span>
+  const markup = books.map(({ author, book_image, title, _id }) => {
+    return ` <li id=${_id} class="js-book group-book-link">
+                    <img class="group-book-icon" src="${book_image}" alt="${title}" width = 180px />
+                    <h4 class="group-book-title">${title}</h4>
+                    <span class="group-book-author">${author}</span>
                   </li>`;
   });
   topBooksList.innerHTML = markup.join(' ');
