@@ -93,12 +93,15 @@ a {
   cursor: pointer;
 }
 
+.support__btn:hover {
+  background-color: var(--brand-color);
+}
+
 .support__btn:hover .support__btn-icon {
   fill: var(--accent-color);
 }
 
 .support__btn-icon {
-  stroke: var(--accent-color);
   width: 20px;
   height: 20px;
   transform: translateY(2px);
