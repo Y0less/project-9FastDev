@@ -1,5 +1,6 @@
 //обробити помилку запиту
 import booksApiService from './books-service';
+import defaultBookImg from '../images/default-book-cover/default-mobile-book-cover.png';
 
 const refs = {
   booksList: document.querySelector('.js-books-list'),
@@ -30,7 +31,7 @@ function populateModalWin(book, modalWin) {
     title,
     author,
     description,
-    book_image,
+    book_image: bookImg,
     buy_links: buyLinks,
     _id,
   } = book;
@@ -40,7 +41,7 @@ function populateModalWin(book, modalWin) {
   const bookDescription = modalWin.querySelector('.modal-book-description');
   const shopLinks = modalWin.querySelectorAll('a');
   const addBtn = modalWin.querySelectorAll('.modal-add-btn');
-  bookImage.src = book_image;
+  bookImage.src = bookImg ? bookImg : defaultBookImg;
   bookImage.alt = title;
   bookTitle.textContent = title;
   bookAuthor.textContent = author;
