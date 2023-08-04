@@ -97,7 +97,7 @@
   .best-books-list {
     margin-bottom: 8px;
   }
-  .best-book-link:not(:first-child) {
+  .best-books-link:not(:first-child) {
     display: none;
   }
 
@@ -139,12 +139,16 @@
   }
   .best-books-link,
   .group-book-link {
-    width: 218px;
+    /* width: 218px; */
+    max-width: calc((704px - 25px * 2) / 3);
   }
   .best-book-icon,
   .group-book-icon {
-    width: 218px;
+    max-width: calc((704px - 25px * 2) / 3);
     height: 316px;
+  }
+  .best-books-link:not(:nth-child(3n)) {
+    margin-right: 21px;
   }
   .best-books {
     display: flex;
@@ -154,10 +158,9 @@
   .best-books-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    /* gap: 25px; */
     margin-bottom: 20px;
   }
+
   .best-books-link:nth-child(n + 4) {
     display: none;
   }
