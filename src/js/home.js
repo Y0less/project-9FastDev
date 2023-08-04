@@ -1,61 +1,11 @@
+import booksApiService from './books-service';
+// Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
 };
 const { topBooksList, mainPage } = param;
-class BooksApiService {
-  #BASE_URL = 'https://books-backend.p.goit.global/books/';
 
-  fetchCategoryList() {
-    return fetch(`${this.#BASE_URL}category-list`).then(response => {
-      if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    });
-  }
-
-  fetchTopBooks() {
-    return fetch(`${this.#BASE_URL}top-books`).then(response => {
-      if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    });
-  }
-
-  fetchCategory(category) {
-    const searchParams = new URLSearchParams({
-      category,
-    });
-
-    return fetch(`${this.#BASE_URL}category?${searchParams}`).then(response => {
-      if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    });
-  }
-
-  fetchBookById(bookId) {
-    return fetch(`${this.#BASE_URL}${bookId}`).then(response => {
-      if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
-        throw new Error(response.statusText);
-      }
-      return response.json();
-    });
-  }
-}
-
-const booksApiService = new BooksApiService();
 // fetch data Top Books  for main page
 async function fetchBooks() {
   let data = null;
