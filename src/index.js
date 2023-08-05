@@ -7,3 +7,4 @@ import './js/pop-up.js';
 import './js/theme.js';
 import './js/handle-book-click.js';
 import './js/login-modal.js';
+import './js/save-book-id.js';
