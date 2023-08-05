@@ -1,48 +1,45 @@
 import { save, load, LOCAL_STORAGE_KEY } from './storage';
-import mobileImg from '../images/shopping-list/mobile.png'
-import mobileREtinaImg from '../images/shopping-list/mobile@2x.png'
-import tabletDeskImg from '../images/shopping-list/tablet-desck.png'
-import tabletDesckRetinaImg from '../images/shopping-list/tablet-desck@2x.png'
+import mobileImg from '../images/shopping-list/mobile.png';
+import mobileREtinaImg from '../images/shopping-list/mobile@2x.png';
+import tabletDeskImg from '../images/shopping-list/tablet-desck.png';
+import tabletDesckRetinaImg from '../images/shopping-list/tablet-desck@2x.png';
 
-import amazonImg from '../images/books-links/amazon.png'
-import appleImg from '../images/books-links/apple-books.png'
-import bookshopImg from '../images/books-links/bookshop.png'
+import amazonImg from '../images/books-links/amazon.png';
+import appleImg from '../images/books-links/apple-books.png';
+import bookshopImg from '../images/books-links/bookshop.png';
 
-import sprite from '../images/icons.svg'
-
-
+import sprite from '../images/icons.svg';
 
 const refs = {
-    listEl: document.querySelector('.js-shopping-list')
-}
+  listEl: document.querySelector('.js-shopping-list'),
+};
+
+const bookSave = load(LOCAL_STORAGE_KEY) ? load(LOCAL_STORAGE_KEY) : [];
 
 refs.listEl.innerHTML = createMarkup(bookSave);
 refs.listEl.addEventListener('click', handlerRemove);
 
-const bookSave = load(LOCAL_STORAGE_KEY)?load(LOCAL_STORAGE_KEY):[];
-
-if (!bookSave.length) { 
+if (!bookSave.length) {
   refs.listEl.innerHTML = createDefault();
   return;
 }
 
-
-function handlerRemove(evt) { 
-if (!evt.target.classList.contains('js-remove'))
-        return
-    const book = evt.target.closest('.js-book');
-    const bookId = Number(book.dataset.id)
-    const idx = bookSave.findIndex(({ _id }) => _id === bookId)
-    if (!!~idx) {
-        bookSave.splice(idx, 1)
-        save(LOCAL_STORAGE_KEY, bookSave)
-        refs.listEl.innerHTML = createMarkup(bookSave);
-    }
+function handlerRemove(evt) {
+  if (!evt.target.classList.contains('js-remove')) return;
+  const book = evt.target.closest('.js-book');
+  const bookId = Number(book.dataset.id);
+  const idx = bookSave.findIndex(({ _id }) => _id === bookId);
+  if (!!~idx) {
+    bookSave.splice(idx, 1);
+    save(LOCAL_STORAGE_KEY, bookSave);
+    refs.listEl.innerHTML = createMarkup(bookSave);
+  }
 }
 
-
 function createMarkup(arr) {
-    return arr.map(({ _id, book_image, list_name, description, author, buy_links }) => `
+  return arr
+    .map(
+      ({ _id, book_image, list_name, description, author, buy_links }) => `
      <li data-id="${_id}" class="js-book">
               <div>
                 <img src="${book_image}" alt="${title}" width="" height=""/>
@@ -77,12 +74,12 @@ function createMarkup(arr) {
                 </svg>
                 </button>
               </div>
-            </li>`).join('')
+            </li>`
+    )
+    .join('');
 }
 
-
-function createDefault() { 
-
+function createDefault() {
   return `<div>
             <p>This page is empty, add some books and proceed to order.</p>
             <picture>
@@ -104,5 +101,5 @@ function createDefault() {
           height="198"
         />
       </picture>
-          </div>`
+          </div>`;
 }
