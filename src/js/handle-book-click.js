@@ -6,9 +6,9 @@ import defaultBookImg from '../images/default-book-cover/default-mobile-book-cov
 
 const refs = {
   booksList: document.querySelector('.js-books-list'),
-  backdrop: document.querySelector('.backdrop'),
-  modalWin: document.querySelector('.modal-window'),
-  closeModalBtn: document.querySelector('.modal-window-close-btn'),
+  backdrop: document.querySelector('.js-backdrop'),
+  modalWin: document.querySelector('.js-modal-window'),
+  closeModalBtn: document.querySelector('.js-modal-window-close-btn'),
 };
 
 refs.booksList.addEventListener('click', onBookClick);
@@ -63,7 +63,6 @@ function populateModalWin(book, modalWin) {
 }
 
 function showModalWin(element) {
-  console.log('showModalWin');
   element.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
   document.addEventListener('keydown', onEscPress);
@@ -72,25 +71,20 @@ function showModalWin(element) {
 }
 
 function onCloseModalBtnClick() {
-  console.log('onCloseModalBtnClick');
-  modal.classList.add('is-hidden');
+  refs.backdrop.classList.add('is-hidden');
   document.body.style.overflow = '';
   document.removeEventListener('keydown', onEscPress);
-  backdrop.removeEventListener('click', onBackdropClick);
+  refs.backdrop.removeEventListener('click', onBackdropClick);
 }
 
 function onBackdropClick(e) {
-  console.log('click');
   if (e.currentTarget === e.target) {
-    console.log('onBackdropClick');
     onCloseModalBtnClick();
   }
 }
 
 function onEscPress(e) {
-  console.log('onKeyPress');
   if (e.code === 'Escape') {
-    console.log('onEscPress');
     onCloseModalBtnClick();
   }
 }
