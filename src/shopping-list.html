@@ -15,14 +15,36 @@
     <main>
       <section class="shopping-list">
         <div class="container">
-          <aside class="sidebar">
-            <!-- Support Ukraine -->
-            <include src="./partials/support-ukraine.html"></include>
-          </aside>
+          <div class="side-part">
+            <aside class="sidebar">
+              <!-- Support Ukraine -->
+              <include src="./partials/support-ukraine.html"></include>
+            </aside>
+          </div>
           <!-- Create Markup Below -->
 
           <p class="shopping-list-title">Shopping List</p>
+
+          <ul class="js-shopping-list"></ul>
         </div>
+
+        <ul>
+          <li>
+            <a href="${buy_links[0].url}">
+              <img src="./images/books-links/amazon.png" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="${buy_links[1].url}">
+              <img src="./images/books-links/apple-books.png" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="${buy_links[2].url}">
+              <img src="./images/books-links/bookshop.png" alt="" />
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
 
