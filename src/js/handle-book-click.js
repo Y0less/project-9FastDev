@@ -25,7 +25,7 @@ async function onBookClick(e) {
   try {
     const book = await booksApiService.fetchBookById(targetBookId);
     populateModalWin(book, refs.modalWin);
-    changeButtonText(targetBookId, refs.modalWin);
+    changeButton(targetBookId);
     showModalWin(refs.backdrop);
   } catch (error) {
     Notify.failure('HTTP request failed');
@@ -46,7 +46,7 @@ function populateModalWin(book, modalWin) {
   const bookAuthor = modalWin.querySelector('.modal-book-author');
   const bookDescription = modalWin.querySelector('.modal-book-description');
   const shopLinks = modalWin.querySelectorAll('a');
-  const addBtn = modalWin.querySelectorAll('.modal-add-btn');
+  const addBtn = modalWin.querySelectorAll('.js-modal-btn');
   bookImage.src = bookImg ? bookImg : defaultBookImg;
   bookImage.alt = title;
   bookTitle.textContent = title;
@@ -60,7 +60,9 @@ function populateModalWin(book, modalWin) {
     ).url;
     link.href = shopLink;
   });
-  addBtn.id = id;
+  addBtn.forEach(btn => {
+    btn.id = id;
+  });
 }
 
 function showModalWin(element) {
@@ -90,16 +92,29 @@ function onEscPress(e) {
   }
 }
 
-function changeButtonText(bookId, modalWin) {
-  const addToShopListBtn = modalWin.querySelector('.modal-add-btn');
-  const btnDesc = modalWin.querySelector('.modal-btn-desc');
-  const savedBooksId = load(LOCAL_STORAGE_KEY);
-  if (!savedBooksId) {
+function changeButton(bookId) {
+  const savedBooksId = load(LOCAL_STORAGE_KEY) ? load(LOCAL_STORAGE_KEY) : [];
+  if (!savedBooksId.length) {
     return;
   }
   const isBookIdInLocalStorage = savedBooksId.some(id => id === bookId);
   if (isBookIdInLocalStorage) {
-    addToShopListBtn.textContent = 'remove from the shopping list';
-    btnDesc.style.display = 'block';
+    hideAddToLSButton();
+    return;
   }
+  showAddToLSButton();
 }
+
+function hideAddToLSButton() {
+  document.querySelector('.js-add-btn').style.display = 'none';
+  document.querySelector('.js-remove-btn').style.display = 'block';
+  document.querySelector('.js-modal-desc-text').style.display = 'block';
+}
+
+function showAddToLSButton() {
+  document.querySelector('.js-remove-btn').style.display = 'none';
+  document.querySelector('.js-add-btn').style.display = 'block';
+  document.querySelector('.js-modal-desc-text').style.display = 'none';
+}
+
+export { hideAddToLSButton, showAddToLSButton };

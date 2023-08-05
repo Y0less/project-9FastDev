@@ -167,6 +167,14 @@
   pointer-events: none;
 }
 
+.remove-btn {
+  display: none;
+}
+
+.modal-desc-text {
+  display: none;
+}
+
 /* .modal-remove-btn {
   position: absolute;
   bottom: 76px;
