@@ -5,6 +5,7 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: 100;
 }
 .backdrop.is-hidden {
   opacity: 0;
@@ -137,13 +138,13 @@
 .modal-links-link:focus {
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
 } */
-.modal-add-btn {
+.modal-btn {
   background-color: transparent;
   color: #111111;
   font-size: 14px;
   font-weight: 700;
   border: 2px solid #4f2ee8;
-  padding: 14px 28px;
+  padding: 14px 23px;
   border-radius: 40px;
   text-transform: uppercase;
   margin-left: auto;
@@ -151,15 +152,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: content-box;
 }
-.modal-add-btn:hover,
-.modal-add-btn:focus {
+.modal-btn:hover,
+.modal-btn:focus {
   background-color: #4f2ee8;
   color: var(--white-color);
   box-shadow: 0px 4px 18px 0px rgba(0, 0, 0, 0.15);
 }
+.modal-btn.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
-.modal-remove-btn {
+/* .modal-remove-btn {
   position: absolute;
   bottom: 76px;
   background-color: transparent;
@@ -187,7 +194,7 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
+} */
 
 /* --------------------------------------TABLET STYLES--------------------------------------- */
 
@@ -234,17 +241,17 @@
   }
   .modal-links-img {
   } */
-  .modal-add-btn {
+  .modal-btn {
     width: 500px;
     margin-right: auto;
     margin-left: auto;
     font-size: 18px;
   }
 
-  .modal-remove-btn {
+  /* .modal-remove-btn {
     width: 500px;
     margin-right: auto;
     margin-left: auto;
     font-size: 18px;
-  }
+  } */
 }
