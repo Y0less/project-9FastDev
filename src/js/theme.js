@@ -7,9 +7,12 @@ const modalEl = document.querySelectorAll('.white-theme-color-modal');
 const svgEl = document.querySelectorAll('.white-theme-color-svg');
 bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
 
-function onChangeTheme() {
-  if (b.style.backgroundColor === 'black') {
-    localStorage.setItem('themeColor', (b.style.backgroundColor = 'white'));
+export function onChangeTheme() {
+  if (bodyEl.style.backgroundColor === 'black') {
+    localStorage.setItem(
+      'themeColor',
+      (bodyEl.style.backgroundColor = 'white')
+    );
     bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
     categoriesEl.forEach(item => {
       item.classList.remove('black-theme');
@@ -24,7 +27,10 @@ function onChangeTheme() {
       item.classList.remove('black-theme');
     });
   } else {
-    localStorage.setItem('themeColor', (b.style.backgroundColor = 'black'));
+    localStorage.setItem(
+      'themeColor',
+      (bodyEl.style.backgroundColor = 'black')
+    );
     bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
     categoriesEl.forEach(item => {
       item.classList.add('black-theme');
