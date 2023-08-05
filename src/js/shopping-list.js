@@ -1,4 +1,4 @@
-import { save, load, remove } from './storage';
+import { save, load, LOCAL_STORAGE_KEY } from './storage';
 
 console.log('Hello Shopping List!');
 
@@ -6,14 +6,15 @@ const refs = {
     listEl: document.querySelector('.js-shopping-list')
 }
 
-const LS_KEY = 'shoppingList';
-const arr = load(LS_KEY);
+const bookSave = load(LOCAL_STORAGE_KEY)?load(LOCAL_STORAGE_KEY):[];
 
-if (!arr) { 
-    refs.listEl.innerHTML = creatreDefault();
+if (!bookSave.length) { 
+ 
+  refs.listEl.innerHTML = createDefault();
+  return;
 }
 
-refs.listEl.innerHTML = createMarkup(arr);
+refs.listEl.innerHTML = createMarkup(bookSave);
 refs.listEl.addEventListener('click', handlerRemove);
 
 
@@ -23,11 +24,11 @@ if (!evt.target.classList.contains('js-remove'))
         return
     const book = evt.target.closest('.js-book');
     const bookId = Number(book.dataset.id)
-    const idx = arr.findIndex(({ _id }) => _id === bookId)
+    const idx = bookSave.findIndex(({ _id }) => _id === bookId)
     if (!!~idx) {
-        arr.splise(idx, 1)
-        save(LS_KEY, arr)
-        refs.listEl.innerHTML = createMarkup(arr);
+        arr.splice(idx, 1)
+        save(LOCAL_STORAGE_KEY, bookSave)
+        refs.listEl.innerHTML = createMarkup(bookSave);
     }
 }
 
@@ -60,12 +61,11 @@ function createMarkup(arr) {
                         <img src="./images/books-links/bookshop.png" alt="icon of bookshop" width="" height="" />
                     </a>
                     </li>
- 
                   </ul>
                 </div>
                 <button class="js-remove" type= "button">
                  <svg class="icon-remove" width="18px" height="18px">
-                    <use href="./images/shopping-list/icon-remove.svg"></use>
+                    <use href="./images/icons.svg#icon-dump"></use>
                 </svg>
                 </button>
               </div>
@@ -73,13 +73,10 @@ function createMarkup(arr) {
 }
 
 
+function createDefault() { 
 
-function creatreDefault() { 
-
-  return ` <div>
-    
+  return `<div>
             <p>This page is empty, add some books and proceed to order.</p>
-
             <picture>
         <source
           srcset="./images/shopping-list/tablet-desck.png 1x, ./images/shopping-list/tablet-desck@2x.png 2x"
