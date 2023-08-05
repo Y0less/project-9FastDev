@@ -1,4 +1,5 @@
 import booksApiService from './books-service';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 const param = {
   topBooksList: document.querySelector('.best-books'),
@@ -12,7 +13,7 @@ async function fetchBooks() {
   try {
     data = await booksApiService.fetchTopBooks();
   } catch (error) {
-    console.log(error);
+    fetchError(error);
   }
   return data;
 }
@@ -39,7 +40,7 @@ function createMarkupBooksList(bookslist) {
                     <p class="best-book-author">${author}</p>
                   </li>`;
   });
-  return markupBooks;
+  return markupBooks.join(' ');
 }
 // const image = imageFromBack ? imageFromBack : defaultImage;
 
@@ -78,7 +79,7 @@ async function fetchTargetCategory(event) {
     const targetCategory = event.target.id;
     data = await booksApiService.fetchCategory(targetCategory);
   } catch (error) {
-    console.log(error);
+    fetchError(error);
   }
   return data;
 }
@@ -86,6 +87,7 @@ async function fetchTargetCategory(event) {
 function createBestsellersPage(booklist, event) {
   if (booklist) {
     const targetCategory = event.target.id;
+    console.log(targetCategory);
     createMarkupBookGroup(booklist, targetCategory);
   }
 }
@@ -99,20 +101,24 @@ export function createMarkupBookGroup(data, groupName) {
 }
 
 export function changePageTitle(newtitle) {
-  console.log(newtitle);
+  const partsForTitle = separateTitle(newtitle);
+  mainPage.firstElementChild.textContent = '';
 
-  mainPage.firstElementChild.textContent = `${newtitle}`;
+  const string = `<h1 class="home-title">
+      ${partsForTitle[0]} <span class="home-title-part"> ${partsForTitle[1]} </span>
+    </h1>`;
+  mainPage.insertAdjacentHTML('afterbegin', string);
 }
-// function separateTitle(title) {
-//   const titleArr = title.split(' ');
-//   // console.log(titleArr);
-//   if (titleArr.length > 1) {
-//     let secondArr = titleArr.splice(titleArr.length - 1, 1);
-//     return secondArr;
-//     // console.log(firstArr);
-//   }
-//   console.log(titleArr);
-// }
+
+function separateTitle(title) {
+  const titleArr = title.split(' ');
+  const arrForGroupTitle = [];
+  if (titleArr.length > 1) {
+    arrForGroupTitle.push(titleArr.splice(titleArr.length - 1, 1).join(''));
+  }
+  arrForGroupTitle.unshift(titleArr.join(' '));
+  return arrForGroupTitle;
+}
 
 export function changeBooksPositioning() {
   topBooksList.classList.replace('best-books', 'category-book-page');
@@ -127,4 +133,19 @@ export function createBookGroupPage(books) {
                   </li>`;
   });
   topBooksList.innerHTML = markup.join(' ');
+}
+
+// function show error
+function fetchError(error) {
+  mainPage.innerHTML = '';
+
+  Notify.failure(
+    'OOPS!!! Something went wrong! Try reloading the page or select another BOOK CATEGORY!!!',
+    {
+      position: 'center-center',
+      timeout: 3000,
+      width: '400px',
+      fontSize: '24px',
+    }
+  );
 }

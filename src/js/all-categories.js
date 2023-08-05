@@ -26,7 +26,7 @@ async function createMarkupBookCategory() {
   const bookCategories = await fetchCategories();
   const arrForMarkup = bookCategories.map(({ list_name: bookCategoryName }) => {
     return `<li>
-          <span class="category">${bookCategoryName}</span>
+          <span id="${bookCategoryName}" class="category">${bookCategoryName}</span>
                     </li>`;
   });
   bookCategoriesList.innerHTML = arrForMarkup.join(' ');
