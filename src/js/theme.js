@@ -1,11 +1,18 @@
 const bodyEl = document.querySelector('body');
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
 
 export function onChangeTheme() {
   const categoriesEl = document.querySelectorAll(
     '.white-theme-color-Allcategories'
   );
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
   const mainTextEl = document.querySelectorAll('.white-theme-color-main-text');
   const modalEl = document.querySelectorAll('.white-theme-color-modal');
   const svgEl = document.querySelectorAll('.white-theme-color-svg');
