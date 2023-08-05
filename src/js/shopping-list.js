@@ -1,6 +1,16 @@
 import { save, load, LOCAL_STORAGE_KEY } from './storage';
+import mobileImg from '../images/shopping-list/mobile.png'
+import mobileREtinaImg from '../images/shopping-list/mobile@2x.png'
+import tabletDeskImg from '../images/shopping-list/tablet-desck.png'
+import tabletDesckRetinaImg from '../images/shopping-list/tablet-desck@2x.png'
 
-console.log('Hello Shopping List!');
+import amazonImg from '../images/books-links/amazon.png'
+import appleImg from '../images/books-links/apple-books.png'
+import bookshopImg from '../images/books-links/bookshop.png'
+
+import sprite from '../images/icons.svg'
+
+
 
 const refs = {
     listEl: document.querySelector('.js-shopping-list')
@@ -8,15 +18,15 @@ const refs = {
 
 const bookSave = load(LOCAL_STORAGE_KEY)?load(LOCAL_STORAGE_KEY):[];
 
-if (!bookSave.length) { 
- 
+if (!bookSave.length && refs.listEl) { 
   refs.listEl.innerHTML = createDefault();
   return;
 }
 
-refs.listEl.innerHTML = createMarkup(bookSave);
-refs.listEl.addEventListener('click', handlerRemove);
-
+if (refs.listEl) {
+  refs.listEl.innerHTML = createMarkup(bookSave);
+  refs.listEl.addEventListener('click', handlerRemove);
+}
 
 
 function handlerRemove(evt) { 
@@ -26,7 +36,7 @@ if (!evt.target.classList.contains('js-remove'))
     const bookId = Number(book.dataset.id)
     const idx = bookSave.findIndex(({ _id }) => _id === bookId)
     if (!!~idx) {
-        arr.splice(idx, 1)
+        bookSave.splice(idx, 1)
         save(LOCAL_STORAGE_KEY, bookSave)
         refs.listEl.innerHTML = createMarkup(bookSave);
     }
@@ -48,24 +58,24 @@ function createMarkup(arr) {
                   <ul>
                   <li>
                     <a href="${buy_links[0].url}">
-                        <img src="./images/books-links/amazon.png" alt="icon of Amazon" width="" height=""/>
+                        <img src="${amazonImg}" alt="icon of Amazon" width="" height=""/>
                     </a>
                     </li>
                     <li>
                     <a href="${buy_links[1].url}">
-                        <img src="./images/books-links/apple-books.png" alt="icon of Apple-books" width="" height="" />
+                        <img src="${appleImg}" alt="icon of Apple-books" width="" height="" />
                     </a>
                     </li>
                     <li>
                     <a href="${buy_links[2].url}">
-                        <img src="./images/books-links/bookshop.png" alt="icon of bookshop" width="" height="" />
+                        <img src="${bookshopImg}" alt="icon of bookshop" width="" height="" />
                     </a>
                     </li>
                   </ul>
                 </div>
                 <button class="js-remove" type= "button">
                  <svg class="icon-remove" width="18px" height="18px">
-                    <use href="./images/icons.svg#icon-dump"></use>
+                    <use href="${sprite}#icon-dump"></use>
                 </svg>
                 </button>
               </div>
@@ -79,18 +89,18 @@ function createDefault() {
             <p>This page is empty, add some books and proceed to order.</p>
             <picture>
         <source
-          srcset="./images/shopping-list/tablet-desck.png 1x, ./images/shopping-list/tablet-desck@2x.png 2x"
+          srcset="${tabletDeskImg} 1x, ${tabletDesckRetinaImg} 2x"
           media="(min-width: 768px)"
         />
         <source
           srcset="
-            ./images/shopping-list/mobile.png    1x,
-            ./images/shopping-list/mobile@2x.png 2x
+            ${mobileImg}   1x,
+            ${mobileREtinaImg} 2x
           "
           media="(min-width: 320px)"
         />
         <img
-          src="./images/shopping-list/mobile.png"
+          src="${mobileImg}"
           alt="stack of books"
           width="265"
           height="198"
