@@ -15,11 +15,12 @@ refs.booksList.addEventListener('click', onBookClick);
 
 async function onBookClick(e) {
   const targetBook = e.target.closest('.js-book');
-  const targetBookId = targetBook.id;
 
   if (!targetBook) {
     return;
   }
+
+  const targetBookId = targetBook.id;
 
   try {
     const book = await booksApiService.fetchBookById(targetBookId);
