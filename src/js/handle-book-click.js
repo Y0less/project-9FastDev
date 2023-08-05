@@ -60,6 +60,7 @@ function populateModalWin(book, modalWin) {
 }
 
 function showModalWin(element) {
+  console.log('showModalWin');
   element.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
   document.addEventListener('keydown', onEscPress);
@@ -68,6 +69,7 @@ function showModalWin(element) {
 }
 
 function onCloseModalBtnClick() {
+  console.log('onCloseModalBtnClick');
   modal.classList.add('is-hidden');
   document.body.style.overflow = '';
   document.removeEventListener('keydown', onEscPress);
@@ -75,13 +77,17 @@ function onCloseModalBtnClick() {
 }
 
 function onBackdropClick(e) {
+  console.log('click');
   if (e.currentTarget === e.target) {
+    console.log('onBackdropClick');
     onCloseModalBtnClick();
   }
 }
 
 function onEscPress(e) {
+  console.log('onKeyPress');
   if (e.code === 'Escape') {
+    console.log('onEscPress');
     onCloseModalBtnClick();
   }
 }
