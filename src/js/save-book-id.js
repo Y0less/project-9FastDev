@@ -1,6 +1,4 @@
-import { load, save } from './storage';
-
-const LOCAL_STORAGE_KEY = 'shoppingList';
+import { LOCAL_STORAGE_KEY, load, save } from './storage';
 
 const refs = { addToLSBtn: document.querySelector('.modal-add-btn') };
 
