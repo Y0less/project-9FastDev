@@ -1,7 +1,7 @@
 //обробити помилку запиту
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import booksApiService from './books-service';
-import { load } from './storage';
+import { LOCAL_STORAGE_KEY, load } from './storage';
 import defaultBookImg from '../images/default-book-cover/default-mobile-book-cover.png';
 
 const refs = {
@@ -98,7 +98,6 @@ function onEscPress(e) {
 function changeButtonText(bookId, modalWin) {
   const addToShopListBtn = modalWin.querySelector('.modal-add-btn');
   const btnDesc = modalWin.querySelector('.modal-btn-desc');
-  const LOCAL_STORAGE_KEY = 'shoppingList';
   const savedBooksId = load(LOCAL_STORAGE_KEY);
   if (!savedBooksId) {
     return;
