@@ -1,10 +1,11 @@
 import { LOCAL_STORAGE_KEY, load, save } from './storage';
 
-const refs = { addToLSBtn: document.querySelector('.modal-add-btn') };
+const refs = { addToLSBtn: document.querySelector('.js-modal-btn') };
 
 refs.addToLSBtn.addEventListener('click', saveToLocaleStorage);
 
 function saveToLocaleStorage(e) {
+  const btnText = refs.addToLSBtn.textContent;
   const savedBooksId = load(LOCAL_STORAGE_KEY);
   const booksId = savedBooksId ? savedBooksId : [];
   const targetId = e.target.id;
