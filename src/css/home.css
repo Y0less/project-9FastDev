@@ -192,7 +192,7 @@
   .best-books-link:not(:last-child) {
     margin-right: 24px;
   }
-  .best-books-link:not(:nth-child(3n)) {
+  .best-books-link:last-child {
     margin-right: 0px;
   }
   .group-book-link {

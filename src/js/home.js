@@ -20,8 +20,15 @@ async function fetchBooks() {
 
 // markup for Top Books lists on main page
 
-async function createMarkupTopBooks() {
+export async function createMarkupTopBooks() {
   const arrTopBooks = await fetchBooks();
+  const homeHeder = document.querySelector('.home-title');
+  homeHeder.remove();
+
+  const string = `<h1 class="home-title">
+      Best Sellers <span class="home-title-part"> Books </span>
+    </h1>`;
+  mainPage.insertAdjacentHTML('afterbegin', string);
   createMarkupBookCategories(arrTopBooks, createMarkupBooksList);
 
   addEventListenerForBTN();
@@ -87,7 +94,6 @@ async function fetchTargetCategory(event) {
 function createBestsellersPage(booklist, event) {
   if (booklist) {
     const targetCategory = event.target.id;
-    console.log(targetCategory);
     createMarkupBookGroup(booklist, targetCategory);
   }
 }
@@ -100,9 +106,10 @@ export function createMarkupBookGroup(data, groupName) {
   changeBooksPositioning();
 }
 
-export function changePageTitle(newtitle) {
+function changePageTitle(newtitle) {
   const partsForTitle = separateTitle(newtitle);
-  mainPage.firstElementChild.textContent = '';
+  const homeHeder = document.querySelector('.home-title');
+  homeHeder.remove();
 
   const string = `<h1 class="home-title">
       ${partsForTitle[0]} <span class="home-title-part"> ${partsForTitle[1]} </span>
@@ -120,11 +127,11 @@ function separateTitle(title) {
   return arrForGroupTitle;
 }
 
-export function changeBooksPositioning() {
+function changeBooksPositioning() {
   topBooksList.classList.replace('best-books', 'category-book-page');
 }
 
-export function createBookGroupPage(books) {
+function createBookGroupPage(books) {
   const markup = books.map(({ author, book_image, title, _id }) => {
     return ` <li id=${_id} class="js-book group-book-link">
                     <img class="group-book-icon" src="${book_image}" alt="${title}" width = 180px />

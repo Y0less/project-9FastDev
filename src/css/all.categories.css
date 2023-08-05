@@ -80,6 +80,7 @@ img {
   letter-spacing: -0.32px;
   text-transform: uppercase;
   color: #4f2ee8;
+  cursor: pointer;
 }
 
 /* Mobile responsive container */
@@ -88,6 +89,9 @@ img {
     width: calc(335px + 2 * 20px);
     margin-left: auto;
     margin-right: auto;
+  }
+  .sidebar {
+    margin-bottom: 40px;
   }
 }
 

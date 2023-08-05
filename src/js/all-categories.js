@@ -1,13 +1,13 @@
 import booksApiService from './books-service';
 // // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 
-import { createMarkupBookGroup } from './home';
+import { createMarkupBookGroup, createMarkupTopBooks } from './home';
 const param = {
+  categoriesSection: document.querySelector('.all-categories'),
   bookCategoriesList: document.querySelector('.all-categories-list'),
 };
-const { bookCategoriesList } = param;
+const { categoriesSection, bookCategoriesList } = param;
 
-// const booksApiService = new BooksApiService();
 // fetch for all book categories  for sidebar
 async function fetchCategories() {
   let data = null;
@@ -34,7 +34,7 @@ async function createMarkupBookCategory() {
 createMarkupBookCategory();
 
 //function for add event listener for click on book category in sidebar
-bookCategoriesList.addEventListener('click', selectMarkupBookGroup);
+categoriesSection.addEventListener('click', selectMarkupBookGroup);
 
 // fetch for all book in  category
 async function fetchBooksOfCategory(targetCategory) {
@@ -52,5 +52,18 @@ async function selectMarkupBookGroup(evt) {
     const category = evt.target.textContent;
     const booksOfCategory = await fetchBooksOfCategory(category);
     createMarkupBookGroup(booksOfCategory, category);
+  } else if (evt.target.className === 'all-categories-title') {
+    console.log('tatadam');
+    createMarkupTopBooks();
   }
 }
+
+// перевірка на активнсть
+// const title = document.querySelector('.home-title');
+// const list = document.querySelector('.all-categories-list');
+// console.dir(title);
+// console.log(title.textContent);
+// console.dir(list);
+// if (title.textContent === 'All Categories') {
+//   console.log();
+// }
