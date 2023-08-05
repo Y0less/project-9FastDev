@@ -46,6 +46,7 @@
   width: 287px;
   height: 408px;
   margin-bottom: 14px;
+  flex-shrink: 0;
 }
 .modal-img {
   border-radius: 8px;
