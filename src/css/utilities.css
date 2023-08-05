@@ -17,35 +17,7 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
-.white-theme-color-Allcategories {
-  color: rgba(17, 17, 17, 0.6);
-}
-.white-theme-color-Allcategories.black-theme {
-  color: rgba(255, 255, 255, 0.6);
-}
-.white-theme-color-Allcategories.black-theme:active {
-  color: rgba(234, 198, 69, 1);
-}
-.white-theme-color-main-text {
-  color: rgba(17, 17, 17, 1);
-}
-.white-theme-color-main-text.black-theme {
-  color: rgba(255, 255, 255, 1);
-}
-.white-theme-color-modal {
-  background-color: rgba(255, 255, 255, 1);
-  border-color: rgba(17, 17, 17, 1);
-}
-.white-theme-color-modal.black-theme {
-  background-color: rgba(17, 17, 17, 1);
-  border-color: rgba(255, 255, 255, 1);
-}
-.white-theme-color-svg {
-  fill: rgba(17, 17, 17, 1);
-}
-.white-theme-color-svg.black-theme {
-  fill: rgba(255, 255, 255, 1);
-}
+
 .container {
   padding-left: 20px;
   padding-right: 20px;
