@@ -9,8 +9,11 @@ refs.addToLSBtn.addEventListener('click', saveToLocaleStorage);
 function saveToLocaleStorage(e) {
   const savedBooksId = load(LOCAL_STORAGE_KEY);
   const booksId = savedBooksId ? savedBooksId : [];
-  books.push(e.target.id);
-  save(LOCAL_STORAGE_KEY, booksId);
+  const targetId = e.target.id;
+  const isBookIdInLocalStorage = booksId.some(id => id === targetId);
+  const booksIdForSave = isBookIdInLocalStorage
+    ? booksId.filter(id => id !== targetId)
+    : [...booksId, targetId];
+  save(LOCAL_STORAGE_KEY, booksIdForSave);
+  console.log(booksIdForSave);
 }
-
-console.log(books);
