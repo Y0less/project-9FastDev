@@ -112,9 +112,13 @@ img {
   }
 
   .sidebar {
+    /* display: flex;
+    justify-content: space-between; */
+    margin-bottom: 100px;
+  }
+  .style-elem {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 100px;
   }
   /* .side-part {
     margin-bottom: 100px;
@@ -126,6 +130,8 @@ img {
     width: 337px;
     height: 472px;
     margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
   }
   .all-categories-list {
     gap: 32px;
@@ -167,11 +173,13 @@ img {
   .sidebar {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0px;
   }
 
   .all-categories {
     width: 356px;
     height: 472px;
+    margin-bottom: 86px;
   }
 }
 

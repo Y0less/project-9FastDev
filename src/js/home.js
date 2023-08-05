@@ -99,8 +99,20 @@ export function createMarkupBookGroup(data, groupName) {
 }
 
 export function changePageTitle(newtitle) {
+  console.log(newtitle);
+
   mainPage.firstElementChild.textContent = `${newtitle}`;
 }
+// function separateTitle(title) {
+//   const titleArr = title.split(' ');
+//   // console.log(titleArr);
+//   if (titleArr.length > 1) {
+//     let secondArr = titleArr.splice(titleArr.length - 1, 1);
+//     return secondArr;
+//     // console.log(firstArr);
+//   }
+//   console.log(titleArr);
+// }
 
 export function changeBooksPositioning() {
   topBooksList.classList.replace('best-books', 'category-book-page');

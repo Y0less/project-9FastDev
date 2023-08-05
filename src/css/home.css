@@ -199,6 +199,18 @@
   .best-books-link:not(:last-child) {
     margin-right: 24px;
   }
+  .best-books-link:not(:nth-child(3n)) {
+    margin-right: 0px;
+  }
+  .group-book-link {
+    margin-right: 24px;
+  }
+  .group-book-link:nth-child(5n) {
+    margin-right: 0;
+  }
+  .group-book-link:nth-child(3n) {
+    margin-right: 24px;
+  }
   .best-book-icon,
   .group-book-icon {
     width: 180px;
