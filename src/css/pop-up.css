@@ -46,6 +46,7 @@
   width: 287px;
   height: 408px;
   margin-bottom: 14px;
+  flex-shrink: 0;
 }
 .modal-img {
   border-radius: 8px;
@@ -164,6 +165,14 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+}
+
+.remove-btn {
+  display: none;
+}
+
+.modal-desc-text {
+  display: none;
 }
 
 /* .modal-remove-btn {
