@@ -1,15 +1,3 @@
-/* <div class="side-part">
-<aside class="sidebar">
-<div class="all-categories">
-<h2 class="all-categories-title">All Categories</h2>
-<ul class="all-categories-list">
-<li><span class="category"></span></li>`;
-</ul>
-</div>
-</include>< !-- Support Ukraine --><include src="./partials/support-ukraine.html"></include>
-</aside>
-</div> */
-
 /* Reset styles */
 h1,
 h2,
@@ -112,17 +100,11 @@ img {
   }
 
   .sidebar {
-    /* display: flex;
-    justify-content: space-between; */
-    margin-bottom: 100px;
-  }
-  .style-elem {
     display: flex;
     justify-content: space-between;
-  }
-  /* .side-part {
     margin-bottom: 100px;
-  } */
+  }
+
   .all-categories {
     font-size: 18px;
     line-height: 1.333;
@@ -163,7 +145,6 @@ img {
     width: calc(1392px + 2 * 24px);
     padding-left: 24px;
     padding-right: 24px;
-    /* display: flex; */
   }
 
   .home-container {
@@ -182,13 +163,3 @@ img {
     margin-bottom: 86px;
   }
 }
-
-/* .category:hover {
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 24px;
-  letter-spacing: -0.36px;
-  text-transform: uppercase;
-  color: #4f2ee8;
-} */

@@ -1,10 +1,3 @@
-/* <h3 class="best-books-heder">${list_name}</h3>
- <ul class="best-books-list"><li>
- <img class="best-book-icon" src="${book_image}" alt="${title}" width=180px />
- <h4 class="best-book-title">${title}</h4>
- <span class="best-book-author">${author}</span></li>`;
- </ul>
- <button type="submit" id="${list_name}" class="best-books-btn">SEE MORE</button></div>`; */
 .main-content {
   margin-left: auto;
   margin-right: auto;
