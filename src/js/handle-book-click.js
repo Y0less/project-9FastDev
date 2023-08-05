@@ -1,6 +1,7 @@
 //обробити помилку запиту
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import booksApiService from './books-service';
+import { load } from './storage';
 import defaultBookImg from '../images/default-book-cover/default-mobile-book-cover.png';
 
 const refs = {
@@ -14,14 +15,16 @@ refs.booksList.addEventListener('click', onBookClick);
 
 async function onBookClick(e) {
   const targetBook = e.target.closest('.js-book');
+  const targetBookId = targetBook.id;
 
   if (!targetBook) {
     return;
   }
 
   try {
-    const book = await booksApiService.fetchBookById(targetBook.id);
+    const book = await booksApiService.fetchBookById(targetBookId);
     populateModalWin(book, refs.modalWin);
+    changeButtonText(targetBookId, refs.modalWin);
     showModalWin(refs.backdrop);
   } catch (error) {
     Notify.failure('HTTP request failed');
@@ -35,7 +38,7 @@ function populateModalWin(book, modalWin) {
     description,
     book_image: bookImg,
     buy_links: buyLinks,
-    _id,
+    _id: id,
   } = book;
   const bookImage = modalWin.querySelector('img');
   const bookTitle = modalWin.querySelector('.modal-book-title');
@@ -56,7 +59,7 @@ function populateModalWin(book, modalWin) {
     ).url;
     link.href = shopLink;
   });
-  addBtn.id = _id;
+  addBtn.id = id;
 }
 
 function showModalWin(element) {
@@ -89,5 +92,20 @@ function onEscPress(e) {
   if (e.code === 'Escape') {
     console.log('onEscPress');
     onCloseModalBtnClick();
+  }
+}
+
+function changeButtonText(bookId, modalWin) {
+  const addToShopListBtn = modalWin.querySelector('.modal-add-btn');
+  const btnDesc = modalWin.querySelector('.modal-btn-desc');
+  const LOCAL_STORAGE_KEY = 'shoppingList';
+  const savedBooksId = load(LOCAL_STORAGE_KEY);
+  if (!savedBooksId) {
+    return;
+  }
+  const isBookIdInLocalStorage = savedBooksId.some(id => id === bookId);
+  if (isBookIdInLocalStorage) {
+    addToShopListBtn.textContent = 'remove from the shopping list';
+    btnDesc.style.display = 'block';
   }
 }
