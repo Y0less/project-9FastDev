@@ -16,16 +16,14 @@ const refs = {
     listEl: document.querySelector('.js-shopping-list')
 }
 
+refs.listEl.innerHTML = createMarkup(bookSave);
+refs.listEl.addEventListener('click', handlerRemove);
+
 const bookSave = load(LOCAL_STORAGE_KEY)?load(LOCAL_STORAGE_KEY):[];
 
-if (!bookSave.length && refs.listEl) { 
+if (!bookSave.length) { 
   refs.listEl.innerHTML = createDefault();
   return;
-}
-
-if (refs.listEl) {
-  refs.listEl.innerHTML = createMarkup(bookSave);
-  refs.listEl.addEventListener('click', handlerRemove);
 }
 
 
