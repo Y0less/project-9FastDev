@@ -65,7 +65,7 @@ function createMarkup(arr) {
                 </div>
                 <button class="js-remove" type= "button">
                  <svg class="icon-remove" width="18px" height="18px">
-                    <use href="./images/"></use>
+                    <use href="./images/shopping-list/icon-remove.svg"></use>
                 </svg>
                 </button>
               </div>
@@ -76,7 +76,28 @@ function createMarkup(arr) {
 
 function creatreDefault() { 
 
-    return ` <div>
-            <img src="./images" alt="stack of books" width="" height=""/>
+  return ` <div>
+    
+            <p>This page is empty, add some books and proceed to order.</p>
+
+            <picture>
+        <source
+          srcset="./images/shopping-list/tablet-desck.png 1x, ./images/shopping-list/tablet-desck@2x.png 2x"
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./images/shopping-list/mobile.png    1x,
+            ./images/shopping-list/mobile@2x.png 2x
+          "
+          media="(min-width: 320px)"
+        />
+        <img
+          src="./images/shopping-list/mobile.png"
+          alt="stack of books"
+          width="265"
+          height="198"
+        />
+      </picture>
           </div>`
 }
