@@ -4,8 +4,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
+  categoriesTitle: document.querySelector('.all-categories-title'),
 };
-const { topBooksList, mainPage } = param;
+export const { topBooksList, mainPage, categoriesTitle } = param;
 
 // fetch data Top Books  for main page
 async function fetchBooks() {
@@ -21,6 +22,16 @@ async function fetchBooks() {
 // markup for Top Books lists on main page
 
 export async function createMarkupTopBooks() {
+  console.dir(categoriesTitle);
+  categoriesTitle.classList.add('chosen-category');
+  bookCategoriesList = document.querySelector('.all-categories-list');
+  const listGroups = [...bookCategoriesList.children];
+  listGroups.forEach(elem => {
+    if (elem.classList.contains('chosen-category')) {
+      elem.classList.remove('chosen-category');
+    }
+  });
+
   const arrTopBooks = await fetchBooks();
   const homeHeder = document.querySelector('.home-title');
   homeHeder.remove();
@@ -72,7 +83,7 @@ async function handleBtnClick(evt) {
   pagePosition();
 
   const books = await fetchTargetCategory(evt);
-
+  stylizeCategoriesList(evt);
   createBestsellersPage(books, evt);
 }
 
@@ -90,7 +101,14 @@ async function fetchTargetCategory(event) {
   }
   return data;
 }
-
+function stylizeCategoriesList(event) {
+  const targetCategory = event.target.id;
+  categoriesTitle.classList.remove('chosen-category');
+  bookCategoriesList = document.querySelector('.all-categories-list');
+  const listGroups = [...bookCategoriesList.children];
+  const stylingCategory = listGroups.find(elem => elem.id === targetCategory);
+  stylingCategory.classList.add('chosen-category');
+}
 function createBestsellersPage(booklist, event) {
   if (booklist) {
     const targetCategory = event.target.id;

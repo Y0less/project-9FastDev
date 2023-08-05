@@ -1,12 +1,17 @@
 import booksApiService from './books-service';
 // // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 
-import { createMarkupBookGroup, createMarkupTopBooks } from './home';
+import {
+  categoriesTitle,
+  createMarkupBookGroup,
+  createMarkupTopBooks,
+} from './home';
 const param = {
   categoriesSection: document.querySelector('.all-categories'),
   bookCategoriesList: document.querySelector('.all-categories-list'),
+  bookCategory: document.querySelector('.category'),
 };
-const { categoriesSection, bookCategoriesList } = param;
+export const { categoriesSection, bookCategoriesList, bookCategory } = param;
 
 // fetch for all book categories  for sidebar
 async function fetchCategories() {
@@ -25,9 +30,7 @@ async function fetchCategories() {
 async function createMarkupBookCategory() {
   const bookCategories = await fetchCategories();
   const arrForMarkup = bookCategories.map(({ list_name: bookCategoryName }) => {
-    return `<li>
-          <span id="${bookCategoryName}" class="category">${bookCategoryName}</span>
-                    </li>`;
+    return `<li id="${bookCategoryName}" class="category">${bookCategoryName}</li>`;
   });
   bookCategoriesList.innerHTML = arrForMarkup.join(' ');
 }
@@ -49,21 +52,18 @@ async function fetchBooksOfCategory(targetCategory) {
 
 async function selectMarkupBookGroup(evt) {
   if (evt.target.className === 'category') {
+    categoriesTitle.classList.remove('chosen-category');
+    const listGroups = [...bookCategoriesList.children];
+    listGroups.forEach(elem => {
+      if (elem.classList.contains('chosen-category')) {
+        elem.classList.remove('chosen-category');
+      }
+    });
+    evt.target.classList.add('chosen-category');
     const category = evt.target.textContent;
     const booksOfCategory = await fetchBooksOfCategory(category);
     createMarkupBookGroup(booksOfCategory, category);
   } else if (evt.target.className === 'all-categories-title') {
-    console.log('tatadam');
     createMarkupTopBooks();
   }
 }
-
-// перевірка на активнсть
-// const title = document.querySelector('.home-title');
-// const list = document.querySelector('.all-categories-list');
-// console.dir(title);
-// console.log(title.textContent);
-// console.dir(list);
-// if (title.textContent === 'All Categories') {
-//   console.log();
-// }
