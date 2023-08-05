@@ -4,8 +4,6 @@ class BooksApiService {
   fetchCategoryList() {
     return fetch(`${this.#BASE_URL}category-list`).then(response => {
       if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
         throw new Error(response.statusText);
       }
       return response.json();
@@ -15,8 +13,6 @@ class BooksApiService {
   fetchTopBooks() {
     return fetch(`${this.#BASE_URL}top-books`).then(response => {
       if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
         throw new Error(response.statusText);
       }
       return response.json();
@@ -30,8 +26,6 @@ class BooksApiService {
 
     return fetch(`${this.#BASE_URL}category?${searchParams}`).then(response => {
       if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
         throw new Error(response.statusText);
       }
       return response.json();
@@ -41,8 +35,6 @@ class BooksApiService {
   fetchBookById(bookId) {
     return fetch(`${this.#BASE_URL}${bookId}`).then(response => {
       if (!response.ok) {
-        console.log(response);
-        console.log(response.statusText);
         throw new Error(response.statusText);
       }
       return response.json();
