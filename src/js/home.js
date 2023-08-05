@@ -24,7 +24,7 @@ async function fetchBooks() {
 export async function createMarkupTopBooks() {
   console.dir(categoriesTitle);
   categoriesTitle.classList.add('chosen-category');
-  bookCategoriesList = document.querySelector('.all-categories-list');
+  const bookCategoriesList = document.querySelector('.all-categories-list');
   const listGroups = [...bookCategoriesList.children];
   listGroups.forEach(elem => {
     if (elem.classList.contains('chosen-category')) {
@@ -104,7 +104,7 @@ async function fetchTargetCategory(event) {
 function stylizeCategoriesList(event) {
   const targetCategory = event.target.id;
   categoriesTitle.classList.remove('chosen-category');
-  bookCategoriesList = document.querySelector('.all-categories-list');
+  const bookCategoriesList = document.querySelector('.all-categories-list');
   const listGroups = [...bookCategoriesList.children];
   const stylingCategory = listGroups.find(elem => elem.id === targetCategory);
   stylingCategory.classList.add('chosen-category');
