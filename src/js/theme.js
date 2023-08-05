@@ -1,5 +1,6 @@
-bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
 const bodyEl = document.querySelector('body');
+bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
+
 export function onChangeTheme() {
   const categoriesEl = document.querySelectorAll(
     '.white-theme-color-Allcategories'
