@@ -1,13 +1,13 @@
-const categoriesEl = document.querySelectorAll(
-  '.white-theme-color-Allcategories'
-);
-const bodyEl = document.querySelector('body');
-const mainTextEl = document.querySelectorAll('.white-theme-color-main-text');
-const modalEl = document.querySelectorAll('.white-theme-color-modal');
-const svgEl = document.querySelectorAll('.white-theme-color-svg');
 bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
-
+const bodyEl = document.querySelector('body');
 export function onChangeTheme() {
+  const categoriesEl = document.querySelectorAll(
+    '.white-theme-color-Allcategories'
+  );
+
+  const mainTextEl = document.querySelectorAll('.white-theme-color-main-text');
+  const modalEl = document.querySelectorAll('.white-theme-color-modal');
+  const svgEl = document.querySelectorAll('.white-theme-color-svg');
   if (bodyEl.style.backgroundColor === 'black') {
     localStorage.setItem(
       'themeColor',
