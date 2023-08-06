@@ -4,8 +4,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
+  categoriesTitle: document.querySelector('.all-categories-title'),
 };
-const { topBooksList, mainPage } = param;
+export const { topBooksList, mainPage, categoriesTitle } = param;
 
 // fetch data Top Books  for main page
 async function fetchBooks() {
@@ -20,8 +21,25 @@ async function fetchBooks() {
 
 // markup for Top Books lists on main page
 
-async function createMarkupTopBooks() {
+export async function createMarkupTopBooks() {
+  console.dir(categoriesTitle);
+  categoriesTitle.classList.add('chosen-category');
+  const bookCategoriesList = document.querySelector('.all-categories-list');
+  const listGroups = [...bookCategoriesList.children];
+  listGroups.forEach(elem => {
+    if (elem.classList.contains('chosen-category')) {
+      elem.classList.remove('chosen-category');
+    }
+  });
+
   const arrTopBooks = await fetchBooks();
+  const homeHeder = document.querySelector('.home-title');
+  homeHeder.remove();
+
+  const string = `<h1 class="home-title">
+      Best Sellers <span class="home-title-part"> Books </span>
+    </h1>`;
+  mainPage.insertAdjacentHTML('afterbegin', string);
   createMarkupBookCategories(arrTopBooks, createMarkupBooksList);
 
   addEventListenerForBTN();
@@ -65,7 +83,7 @@ async function handleBtnClick(evt) {
   pagePosition();
 
   const books = await fetchTargetCategory(evt);
-
+  stylizeCategoriesList(evt);
   createBestsellersPage(books, evt);
 }
 
@@ -83,11 +101,17 @@ async function fetchTargetCategory(event) {
   }
   return data;
 }
-
+function stylizeCategoriesList(event) {
+  const targetCategory = event.target.id;
+  categoriesTitle.classList.remove('chosen-category');
+  const bookCategoriesList = document.querySelector('.all-categories-list');
+  const listGroups = [...bookCategoriesList.children];
+  const stylingCategory = listGroups.find(elem => elem.id === targetCategory);
+  stylingCategory.classList.add('chosen-category');
+}
 function createBestsellersPage(booklist, event) {
   if (booklist) {
     const targetCategory = event.target.id;
-    console.log(targetCategory);
     createMarkupBookGroup(booklist, targetCategory);
   }
 }
@@ -100,9 +124,10 @@ export function createMarkupBookGroup(data, groupName) {
   changeBooksPositioning();
 }
 
-export function changePageTitle(newtitle) {
+function changePageTitle(newtitle) {
   const partsForTitle = separateTitle(newtitle);
-  mainPage.firstElementChild.textContent = '';
+  const homeHeder = document.querySelector('.home-title');
+  homeHeder.remove();
 
   const string = `<h1 class="home-title">
       ${partsForTitle[0]} <span class="home-title-part"> ${partsForTitle[1]} </span>
@@ -120,11 +145,11 @@ function separateTitle(title) {
   return arrForGroupTitle;
 }
 
-export function changeBooksPositioning() {
+function changeBooksPositioning() {
   topBooksList.classList.replace('best-books', 'category-book-page');
 }
 
-export function createBookGroupPage(books) {
+function createBookGroupPage(books) {
   const markup = books.map(({ author, book_image, title, _id }) => {
     return ` <li id=${_id} class="js-book group-book-link">
                     <img class="group-book-icon" src="${book_image}" alt="${title}" width = 180px />
