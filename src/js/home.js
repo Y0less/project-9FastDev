@@ -82,11 +82,13 @@ function createMarkupBookCategories(bookCategories, callback) {
 //function for add event listener for click button SEE MORE
 
 async function handleBtnClick(evt) {
+  loadingToogle();
   pagePosition();
 
   const books = await fetchTargetCategory(evt);
   stylizeCategoriesList(evt);
   createBestsellersPage(books, evt);
+  loadingToogle();
 }
 
 function pagePosition() {
@@ -95,6 +97,7 @@ function pagePosition() {
 
 async function fetchTargetCategory(event) {
   let data = null;
+  topBooksList.innerHTML = '';
   try {
     const targetCategory = event.target.id;
     data = await booksApiService.fetchCategory(targetCategory);

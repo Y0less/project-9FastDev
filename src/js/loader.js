@@ -1,4 +1,4 @@
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader-container');
 
 export default function loadingToogle() {
   loader.classList.toggle('loader-hidden');

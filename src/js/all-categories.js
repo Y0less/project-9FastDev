@@ -1,10 +1,12 @@
 import booksApiService from './books-service';
+import loadingToogle from './loader';
 // // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 
 import {
   categoriesTitle,
   createMarkupBookGroup,
   createMarkupTopBooks,
+  topBooksList,
 } from './home';
 const param = {
   categoriesSection: document.querySelector('.all-categories'),
@@ -51,6 +53,8 @@ async function fetchBooksOfCategory(targetCategory) {
 }
 
 async function selectMarkupBookGroup(evt) {
+  topBooksList.innerHTML = '';
+  loadingToogle();
   if (evt.target.className === 'category') {
     categoriesTitle.classList.remove('chosen-category');
     const listGroups = [...bookCategoriesList.children];
@@ -66,4 +70,5 @@ async function selectMarkupBookGroup(evt) {
   } else if (evt.target.className === 'all-categories-title') {
     createMarkupTopBooks();
   }
+  loadingToogle();
 }
