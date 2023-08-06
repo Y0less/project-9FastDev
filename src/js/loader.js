@@ -1,13 +1,13 @@
-const dialog = document.querySelector('dialog');
+const loader = document.querySelector('dialog');
 let state = false;
 export default function loadingToogle() {
   if (!state) {
-    dialog.showModal();
+    loader.showModal();
     state = true;
     return;
   }
   if (state) {
-    dialog.close();
+    loader.close();
     state = false;
     return;
   }
