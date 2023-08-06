@@ -37,10 +37,16 @@
 .black-theme .modal-links-link {
   background-color: aliceblue;
 }
-.black-theme .home-title,
-.modal-book-title,
-.modal-book-description,
-.modal-btn {
+.black-theme .home-title {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .modal-book-title {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .modal-book-description {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .modal-btn {
   color: rgba(255, 255, 255, 1);
 }
 .black-theme .group-book-title {
