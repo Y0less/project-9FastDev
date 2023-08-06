@@ -23,7 +23,10 @@
   text-transform: uppercase;
   margin-bottom: 18px;
 }
-
+.best-book-link,
+.group-book-link {
+  cursor: pointer;
+}
 .best-book-icon,
 .group-book-icon {
   width: 335px;
@@ -33,6 +36,7 @@
   background-size: contain;
   overflow: hidden;
   margin-bottom: 14px;
+  cursor: pointer;
 }
 
 .best-book-title,
@@ -49,6 +53,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  cursor: pointer;
 }
 
 .best-book-author,
@@ -64,6 +69,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
+  cursor: pointer;
 }
 .best-books-btn {
   display: block;
