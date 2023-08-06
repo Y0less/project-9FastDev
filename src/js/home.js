@@ -22,7 +22,6 @@ async function fetchBooks() {
 // markup for Top Books lists on main page
 
 export async function createMarkupTopBooks() {
-  console.dir(categoriesTitle);
   categoriesTitle.classList.add('chosen-category');
   const bookCategoriesList = document.querySelector('.all-categories-list');
   const listGroups = [...bookCategoriesList.children];
