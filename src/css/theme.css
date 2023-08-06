@@ -21,9 +21,13 @@
 .black-theme .category:hover {
   color: rgba(234, 198, 69, 1);
 }
+.black-theme .chosen-category {
+  color: rgba(234, 198, 69, 1);
+}
 .black-theme .backdrop {
   background-color: rgba(17, 17, 17, 0.1);
 }
+
 .black-theme .all-categories-title:hover {
   color: rgba(234, 198, 69, 1);
 }
