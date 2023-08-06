@@ -31,9 +31,14 @@ async function fetchCategories() {
 
 async function createMarkupBookCategory() {
   const bookCategories = await fetchCategories();
-  const arrForMarkup = bookCategories.map(({ list_name: bookCategoryName }) => {
-    return `<li id="${bookCategoryName}" class="category">${bookCategoryName}</li>`;
-  });
+  const sortedCategories = bookCategories.sort((a, b) =>
+    a.list_name.localeCompare(b.list_name)
+  );
+  const arrForMarkup = sortedCategories.map(
+    ({ list_name: bookCategoryName }) => {
+      return `<li id="${bookCategoryName}" class="category">${bookCategoryName}</li>`;
+    }
+  );
   bookCategoriesList.innerHTML = arrForMarkup.join(' ');
 }
 createMarkupBookCategory();
