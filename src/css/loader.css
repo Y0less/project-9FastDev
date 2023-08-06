@@ -7,8 +7,6 @@
     position: relative;
     border-radius: 8px;
     perspective: 1000px;
-    margin-right: auto;
-    margin-left: auto;
 }
 
 .loader:before {
@@ -52,16 +50,21 @@
     animation: paging 1s linear infinite;
 }
 
-.loader-hidden {
-    display: none;
-}
-
-dialog::backdrop {
-    background-color: rgba(0, 0, 0, 0.2);
-}
 
 @keyframes paging {
     to {
         transform: rotateY(-180deg);
     }
+}
+
+dialog {
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 0px;
+
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
 }

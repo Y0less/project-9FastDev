@@ -1,8 +1,6 @@
-const loader = document.querySelector('.loader-container');
 const dialog = document.querySelector('dialog');
 let state = false;
 export default function loadingToogle() {
-  // loader.classList.toggle('loader-hidden');
   if (!state) {
     dialog.showModal();
     state = true;
@@ -14,8 +12,3 @@ export default function loadingToogle() {
     return;
   }
 }
-
-// console.log('Hello Loader!');
-
-// loadingToogle();
-// console.log('loader :>> ', loader);
