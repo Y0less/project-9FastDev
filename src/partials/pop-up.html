@@ -1,3 +1,78 @@
-<div class="pop-up">
-  <p class="pop-up-title">Pop Up (modal)</p>
+<div class="backdrop js-backdrop is-hidden">
+  <div class="modal-window js-modal-window">
+    <button class="modal-window-close-btn js-modal-window-close-btn">
+      <svg class="modal-close-icon">
+        <use href="/src/images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+    <div class="modal-wrapper">
+      <div class="modal-img-wrapper">
+        <img class="modal-img" src="#" alt="#" width="287" height="408" />
+      </div>
+      <div class="modal-text-wrapper">
+        <p class="modal-book-title"></p>
+        <p class="modal-book-author"></p>
+        <p class="modal-book-description"></p>
+        <ul class="modal-links-list">
+          <li class="modal-links-item">
+            <a
+              id="amazon"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="modal-links-link"
+              href=""
+            >
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/amazon.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="modal-links-item">
+            <a
+              id="apple"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="modal-links-link"
+              href=""
+            >
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/apple-books.png"
+                alt=""
+              />
+            </a>
+          </li>
+          <li class="modal-links-item">
+            <a
+              id="bookshop"
+              target="_blank"
+              rel="noreferrer noopener"
+              class="modal-links-link"
+              href=""
+            >
+              <img
+                class="modal-links-img"
+                src="/src/images/books-links/bookshop.png"
+                alt=""
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="js-modal-buttons">
+      <button class="modal-btn js-add-btn js-modal-btn">
+        add to shopping list
+      </button>
+      <button class="modal-btn remove-btn js-remove-btn js-modal-btn">
+        remove from the shopping list
+      </button>
+    </div>
+    <p class="modal-desc-text js-modal-desc-text">
+      Сongratulations! You have added the book to the shopping list. To delete,
+      press the button “Remove from the shopping list”.
+    </p>
+  </div>
 </div>

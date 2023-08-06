@@ -1,3 +1,5 @@
+const LOCAL_STORAGE_KEY = 'shoppingList';
+
 const save = (key, value) => {
   try {
     const serializedState = JSON.stringify(value);
@@ -30,4 +32,4 @@ const remove = key => {
   }
 };
 
-export { save, load, remove };
+export { save, load, remove, LOCAL_STORAGE_KEY };

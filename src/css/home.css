@@ -1,4 +1,220 @@
+.main-content {
+  margin-left: auto;
+  margin-right: auto;
+}
 .home-title {
-    font-size: 26;
-    color: turquoise
+  color: #111;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.188;
+  letter-spacing: -1.28px;
+  margin-bottom: 40px;
+}
+
+.home-title-part {
+  color: #4f2ee8;
+}
+.best-books-heder {
+  color: #b4afaf;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.286;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.best-book-icon,
+.group-book-icon {
+  width: 335px;
+  height: 485px;
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.best-book-title,
+.group-book-title {
+  color: #111;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.125;
+  letter-spacing: -0.64px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.best-book-author,
+.group-book-author {
+  color: #b4afaf;
+  font-size: 12px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.17;
+  letter-spacing: -0.48px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.best-books-btn {
+  display: block;
+  color: #111;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.14px;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 40px;
+  border: 2px solid #4f2ee8;
+  margin-left: auto;
+}
+
+/* styles for Top books */
+@media screen and (max-width: 768px) {
+  .best-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  .best-books-list {
+    margin-bottom: 8px;
+  }
+  .best-books-link:not(:first-child) {
+    display: none;
+  }
+
+  .best-book-icon,
+  .group-book-icon {
+    width: 335px;
+    height: 485px;
+  }
+
+  /* styles for group books */
+  .category-book-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+}
+/* Mobile responsive container */
+@media screen and (min-width: 375px) {
+  .container {
+    width: calc(335px + 2 * 20px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Tablet adaptive container */
+@media screen and (min-width: 768px) {
+  .container {
+    width: calc(704px + 2 * 32px);
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .home-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.92px;
+  }
+  .best-books-link,
+  .group-book-link {
+    /* width: 218px; */
+    max-width: calc((704px - 25px * 2) / 3);
+  }
+  .best-book-icon,
+  .group-book-icon {
+    max-width: calc((704px - 25px * 2) / 3);
+    height: 316px;
+  }
+  .best-books-link:not(:nth-child(3n)) {
+    margin-right: 21px;
+  }
+  .best-books {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .best-books-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+
+  .best-books-link:nth-child(n + 4) {
+    display: none;
+  }
+  .best-book-title,
+  .group-book-title {
+    text-overflow: ellipsis;
+  }
+  /* styles for group books */
+  .category-book-page {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* gap: 25px; */
+  }
+  .group-book-link {
+    margin-right: 25px;
+    margin-bottom: 40px;
+  }
+
+  .group-book-link:nth-child(3n) {
+    margin-right: 0px;
+  }
+}
+
+/* Desktop adaptive container */
+@media screen and (min-width: 1440px) {
+  .container {
+    width: calc(1392px + 2 * 24px);
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .best-books-link,
+  .group-book-link {
+    width: 180px;
+  }
+  .best-books-link:not(:last-child) {
+    margin-right: 24px;
+  }
+  .best-books-link:last-child {
+    margin-right: 0px;
+  }
+  .group-book-link {
+    margin-right: 24px;
+  }
+  .group-book-link:nth-child(5n) {
+    margin-right: 0;
+  }
+  .group-book-link:nth-child(3n) {
+    margin-right: 24px;
+  }
+  .best-book-icon,
+  .group-book-icon {
+    width: 180px;
+    height: 256px;
+  }
+  .best-books-link:nth-child(n + 4) {
+    display: block;
+  }
+  .best-books-list {
+    display: flex;
+    /* margin-right: 24px; */
+    margin-bottom: 32px;
+  }
 }
