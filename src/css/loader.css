@@ -1,4 +1,5 @@
 .loader {
+    display: block;
     width: 200px;
     height: 140px;
     background: #979794;
@@ -6,6 +7,8 @@
     position: relative;
     border-radius: 8px;
     perspective: 1000px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .loader:before {
@@ -49,7 +52,9 @@
     animation: paging 1s linear infinite;
 }
 
-
+.loader-hidden {
+    display: none;
+}
 
 
 @keyframes paging {

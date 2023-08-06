@@ -1,7 +1,10 @@
-const loader = document.querySelector('loading');
+const loader = document.querySelector('.loader');
 
-export function loadingToogle() {
-  refs.loader.classList.toggle('loading-hidden');
+export default function loadingToogle() {
+  loader.classList.toggle('loader-hidden');
 }
 
-console.log('Hello Loader!');
+// console.log('Hello Loader!');
+
+// loadingToogle();
+// console.log('loader :>> ', loader);

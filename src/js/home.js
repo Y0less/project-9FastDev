@@ -1,5 +1,6 @@
 import booksApiService from './books-service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import loadingToogle from './loader';
 // Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
 const param = {
   topBooksList: document.querySelector('.best-books'),
@@ -22,7 +23,7 @@ async function fetchBooks() {
 // markup for Top Books lists on main page
 
 export async function createMarkupTopBooks() {
-  console.dir(categoriesTitle);
+  loadingToogle();
   categoriesTitle.classList.add('chosen-category');
   const bookCategoriesList = document.querySelector('.all-categories-list');
   const listGroups = [...bookCategoriesList.children];
@@ -43,6 +44,7 @@ export async function createMarkupTopBooks() {
   createMarkupBookCategories(arrTopBooks, createMarkupBooksList);
 
   addEventListenerForBTN();
+  loadingToogle();
 }
 createMarkupTopBooks();
 
