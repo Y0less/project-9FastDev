@@ -31,6 +31,11 @@
   align-items: center;
 }
 
+.header-bookshelf {
+  margin-left: 8px;
+  fill: #000;
+}
+
 /* Nav */
 
 .nav {
@@ -59,20 +64,18 @@
   padding: 8px 16px;
 }
 
-.nav-item .nav-items:not(.disabled-link) a:hover,
-.nav-item .nav-items:not(.disabled-link) a:focus,
-.nav-item .nav-items:not(.disabled-link) a.active-page {
+.nav-item a:hover,
+.nav-item a:focus,
+.nav-item a.active-page {
   border-color: #eac645;
   background-color: #eac645;
   font-weight: 700;
-  border: 1.5px solid transparent;
-  transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s;
+  /* border: 1.5px solid transparent; */
+  /* transition: border-color 0.3s, background-color 0.3s, font-weight 0.3s; */
 }
 
 .nav-link-icon {
-  margin-left: 8px;
-  fill: #111111;
-  stroke: #000000;
+  margin-left: 4px;
 }
 
 .button-hamburger {
