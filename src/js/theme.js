@@ -16,3 +16,5 @@ function addDarkTheme() {
   } catch (error) {}
 }
 addDarkTheme();
+const logoEl = document.querySelector('.header-logo');
+logoEl.addEventListener('click', onChangeTheme);

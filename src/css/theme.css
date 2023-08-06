@@ -1,27 +1,36 @@
 .black-theme body {
   background-color: rgba(32, 32, 36, 1);
 }
+.black-theme .header-bookshelf,
+.nav-link-icon {
+  fill: rgba(243, 243, 243, 1);
+}
+.black-theme .nav-link {
+  color: rgba(243, 243, 243, 1);
+}
+
+.black-theme .button-hamburger {
+  stroke: rgba(243, 243, 243, 1);
+}
 .black-theme .all-categories {
   color: rgba(255, 255, 255, 0.6);
 }
 .black-theme .all-categories-title {
   color: rgba(255, 255, 255, 0.6);
 }
-.black-theme .category:hover,
-.category:focus {
+.black-theme .category:hover {
   color: rgba(234, 198, 69, 1);
 }
 .black-theme .backdrop {
-  background-color: rgba(17, 17, 17, 0.4);
+  background-color: rgba(17, 17, 17, 0.1);
 }
-.black-theme .all-categories-title:hover,
-.all-categories-title:focus {
+.black-theme .all-categories-title:hover {
   color: rgba(234, 198, 69, 1);
 }
 .black-theme .best-books-btn {
   color: rgba(17, 17, 17, 1);
 }
-.black-theme .modal-links-img-container-amazon {
+.black-theme .modal-links-link {
   background-color: aliceblue;
 }
 .black-theme .home-title,
@@ -30,12 +39,14 @@
 .modal-btn {
   color: rgba(255, 255, 255, 1);
 }
+.black-theme .group-book-title {
+  color: rgba(255, 255, 255, 1);
+}
 .black-theme .best-book-title {
   color: rgba(255, 255, 255, 1);
 }
 .black-theme .modal-window {
   background-color: rgba(17, 17, 17, 1);
-  border-color: rgba(255, 255, 255, 1);
 }
 
 .black-theme .modal-close-icon {
@@ -62,4 +73,14 @@
   color: rgba(0, 51, 153, 0.5);
   border: 1px solid rgba(0, 51, 153, 0.8);
   background-color: rgba(0, 51, 153, 0.2);
+}
+.black-theme .btnUp:hover {
+  color: rgba(234, 198, 69, 1);
+
+  background-color: rgba(234, 198, 69, 0.8);
+}
+.black-theme .btnUp {
+  color: rgba(234, 198, 69, 0.5);
+  border: 1px solid rgba(0, 51, 153, 0.3);
+  background-color: rgba(0, 51, 153, 0.5);
 }
