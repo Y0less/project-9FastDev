@@ -28,8 +28,6 @@ a {
 }
 
 .support__container {
-  height: 352px;
-  width: 335px;
   padding: 24px 40px 20px 40px;
   background: var(--support-ukraine);
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
