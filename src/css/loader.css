@@ -56,6 +56,9 @@
     display: none;
 }
 
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.2);
+}
 
 @keyframes paging {
     to {
