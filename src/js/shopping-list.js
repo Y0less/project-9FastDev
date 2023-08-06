@@ -62,7 +62,7 @@ function createBooksMarkup(books) {
         name.toLowerCase().includes('bookshop')
       ).url;
       return `
-     <li data-id="${_id}" class="js-book"><div><img src="${book_image}" alt="${title}" width="" height=""/></div><div><h2>${title}</h2><p>${list_name}</p><p>${description}</p><div><p>${author}</p><ul><li><a href="${amazonLink}" target="_blank"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" target="_blank"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" target="_blank"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button id=${_id} class="js-remove" type= "button"><svg class="icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
+     <li data-id="${_id}" class="js-book"><div><img src="${book_image}" alt="${title}" width="" height=""/></div><div><h2>${title}</h2><p>${list_name}</p><p>${description}</p><div><p>${author}</p><ul><li><a href="${amazonLink}" target="_blank" rel="noreferrer noopener"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" target="_blank" rel="noreferrer noopener"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" target="_blank" rel="noreferrer noopener"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button id=${_id} class="js-remove" type= "button"><svg class="icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
     })
     .join('');
 }
