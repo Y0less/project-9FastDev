@@ -2,6 +2,9 @@
   background-color: rgba(32, 32, 36, 1);
 }
 .black-theme .header-container {
+  background-color: black;
+}
+.black-theme .header-container {
   border-color: rgba(243, 243, 243, 1);
 }
 .black-theme .header-bookshelf,
@@ -11,9 +14,15 @@
 .black-theme .nav-link {
   color: rgba(243, 243, 243, 1);
 }
-
+.black-theme .js-open-menu {
+  background-color: transparent;
+  border-color: transparent;
+}
 .black-theme .button-hamburger {
   stroke: rgba(243, 243, 243, 1);
+}
+.black-theme .modal-desc-text {
+  color: rgba(243, 243, 243, 1);
 }
 .black-theme .all-categories {
   color: rgba(255, 255, 255, 0.6);
