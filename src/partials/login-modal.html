@@ -1,1 +1,58 @@
-<p class="login-modal-title">Hello Login Modal!</p>
+<div class="sign-up-backdrop js-sign-up-backdrop is-hidden" data-menu>
+  <div class="modal">
+    <button data-close class="button-close js-sign-up-close">
+      <svg class="modal-icon" width="20" height="20">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+
+    <div class="form-index">
+      <form class="form-modal">
+        <div class="fields">
+          <div class="modal-form-wrap">
+            <input
+              type="text"
+              name="name"
+              placeholder="name"
+              class="input-style"
+              required
+            />
+          </div>
+
+          <div class="modal-form-wrap">
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              class="input-style"
+              required
+            />
+            <svg class="form-icon" width="18px" height="18px">
+              <use href="./images/icons.svg#icon-mail"></use>
+            </svg>
+          </div>
+
+          <div class="modal-form-wrap last">
+            <input
+              type="password"
+              name="password"
+              placeholder="password"
+              class="input-style"
+              required
+              minlength="6"
+            />
+            <svg class="form-icon" width="18px" height="18px">
+              <use href="./images/icons.svg#icon-lock"></use>
+            </svg>
+          </div>
+
+          <button type="submit" class="form-btn-sign">sign up</button>
+          <div class="btn-container">
+            <button type="button" class="form-btn first">sign up</button>
+            <button type="button" class="form-btn">sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

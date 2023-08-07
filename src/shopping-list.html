@@ -14,7 +14,7 @@
 
     <main>
       <section class="shopping-list">
-        <div class="container">
+        <div class="container shopping-list-container">
           <div class="side-part">
             <aside class="sidebar">
               <!-- Support Ukraine -->
@@ -23,16 +23,17 @@
           </div>
           <!-- Create Markup Below -->
 
-          <h2 class="shopping-list-title">Shopping List</h2>
+          <div class="shopping-list-styles-tab">
+            <h2 class="shopping-list-title">
+              Shopping <span class="shopping-list-title-next-color">List</span>
+            </h2>
 
-          <ul class="js-shopping-list"></ul>
+            <ul class="js-shopping-list shopping-list-default-style"></ul>
+          </div>
         </div>
 
         <ul></ul>
       </section>
     </main>
-
-    <!-- Footer -->
-    <include src="./partials/footer.html"></include>
   </body>
 </html>
