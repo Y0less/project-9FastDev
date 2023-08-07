@@ -91,8 +91,8 @@
   color: rgba(255, 255, 255, 1);
 }
 .black-theme .shopping-list-links-icon-amazon {
-  background-color: aliceblue;
-  border-color: transparent;
+  filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%)
+    contrast(80%);
 }
 
 .iconScroll {
