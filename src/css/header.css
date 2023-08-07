@@ -14,7 +14,6 @@
   width: 100%;
   margin-bottom: 40px;
   top: 0;
-  background-color: #ffffff;
   z-index: 3;
 }
 
@@ -29,6 +28,7 @@
   border: 1.5px solid #111;
   border-radius: 0 0 8px 8px;
   min-width: 375px;
+  background-color: #ffffff;
 }
 
 .header-logo {
@@ -315,8 +315,7 @@ input:checked + .circle::before {
   left: 0;
   width: 100%;
   max-width: 375px;
-  /* height: 100%; */
-  max-height: 812px;
+  height: 100vh;
   transform: translate(0, 0%);
   background: radial-gradient(
     189.32% 190.93% at 59.76% -23.42%,
@@ -383,4 +382,10 @@ input:checked + .circle::before {
   .header-modal {
     display: none;
   }
+}
+
+.header-modal-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
 }
