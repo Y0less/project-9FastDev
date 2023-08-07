@@ -1,5 +1,6 @@
 // import { save, load, remove } from './storage';
 
+// Функція для відкриття/
 (() => {
   const refs = {
     openModalBtn: document.querySelector('[data-modal-open]'),
@@ -14,3 +15,5 @@
     refs.modal.classList.toggle('is-open');
   }
 })();
+
+//
