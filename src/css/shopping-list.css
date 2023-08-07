@@ -1,3 +1,10 @@
+:root {
+  --body-color: #f6f6f6;
+  --white-color: #fff;
+  --brand-color: #4f2ee8;
+  --description-color: #b4afaf;
+  --text-color: #111;
+}
 @media screen and (min-width: 375px) {
   .shopping-list-container {
     width: calc(335px + 2 * 20px);
@@ -28,7 +35,7 @@
   margin-bottom: 40px;
 }
 .shopping-list-title-next-color {
-  color: #4f2ee8;
+  color: var(--brand-color);
 }
 .shopping-list-book-image-wrapper {
   width: 100px;
@@ -51,12 +58,12 @@
 
 .shopping-list-book-image {
   width: 100px;
-  height: 142px;
+  height: auto;
   display: block;
   border-radius: 8px;
 }
 .shopping-list-list-name {
-  color: #b4afaf;
+  color: var(--description-color);
   max-width: 165px;
   font-family: DM Sans;
   font-size: 12px;
@@ -70,7 +77,7 @@
   -webkit-box-orient: vertical;
 }
 .shopping-list-book-author {
-  color: #b4afaf;
+  color: var(--description-color);
   font-weight: 400;
   margin-top: 0;
   margin-right: auto;
@@ -81,11 +88,10 @@
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  margin-bottom: auto;
   letter-spacing: -0.48px;
 }
 .shopping-list-title-book {
-  color: #111;
+  color: var(--text-color);
   text-transform: uppercase;
   margin-top: 0;
   margin-bottom: 4px;
@@ -95,7 +101,7 @@
   line-height: 1.12;
 }
 .shopping-list-description {
-  color: #111;
+  color: var(--text-color);
   text-align: left;
   margin-top: 0;
   margin-right: auto;
@@ -161,8 +167,8 @@
   border: none;
 }
 .shopping-list-icon-remove {
-  fill: #4f2ee8;
-  stroke: #ffffff;
+  fill: var(--brand-color);
+  stroke: var(--white-color);
   width: 28px;
   height: 28px;
 }
@@ -205,7 +211,7 @@
   }
   .shopping-list-book-image {
     width: 116px;
-    height: 165px;
+    max-height: 165px;
   }
   .shopping-list-title-book {
     width: 100%;
@@ -249,7 +255,7 @@
   }
   .shopping-list-author-links {
     width: auto;
-    margin-top: 32px;
+    margin-top: auto;
     align-items: baseline;
     justify-content: space-between;
     display: flex;
