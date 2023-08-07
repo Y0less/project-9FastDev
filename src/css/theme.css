@@ -38,7 +38,8 @@
   color: rgba(17, 17, 17, 1);
 }
 .black-theme #amazon {
-  background-color: rgba(255, 255, 255, 1);
+  filter: invert(1%) sepia(1%) saturate(1%) hue-rotate(1deg) brightness(1000%)
+    contrast(80%);
 }
 .black-theme .home-title {
   color: rgba(255, 255, 255, 1);
