@@ -51,6 +51,7 @@ function handlerRemove(e) {
 }
 
 function createBooksMarkup(books) {
+  console.log(books);
   return books
     .map(
       ({
