@@ -1,16 +1,39 @@
-(() => {
-  const refs = {
-    // openMenuBtn: document.querySelector('[data-open]'),
-    closeMenuBtn: document.querySelector('[data-close]'),
-    menu: document.querySelector('[data-menu]'),
-    body: document.querySelector('body'),
-  };
+const refs = {
+  signUpBtn: document.querySelector('.js-sign-up'),
+  backdrop: document.querySelector('.js-sign-up-backdrop'),
+  closeModalBtn: document.querySelector('.js-sign-up-close'),
+};
 
-//   refs.openMenuBtn.addEventListener('click', toggleMenu);
-  refs.closeMenuBtn.addEventListener('click', toggleMenu);
+refs.signUpBtn.addEventListener('click', onSignUpBtnClick);
 
-  function toggleMenu() {
-    refs.menu.classList.toggle('is-hidden');
-    refs.body.classList.toggle('no-scroll');
+function onSignUpBtnClick(e) {
+  e.preventDefault();
+  showModalWin(refs.backdrop);
+}
+
+function showModalWin(element) {
+  element.classList.remove('is-hidden');
+  document.body.style.overflow = 'hidden';
+  document.addEventListener('keydown', onEscPress);
+  element.addEventListener('click', onBackdropClick);
+  refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
+}
+
+function onCloseModalBtnClick() {
+  refs.backdrop.classList.add('is-hidden');
+  document.body.style.overflow = '';
+  document.removeEventListener('keydown', onEscPress);
+  refs.backdrop.removeEventListener('click', onBackdropClick);
+}
+
+function onBackdropClick(e) {
+  if (e.currentTarget === e.target) {
+    onCloseModalBtnClick();
   }
-})();
+}
+
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    onCloseModalBtnClick();
+  }
+}
