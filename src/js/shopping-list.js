@@ -12,7 +12,14 @@ import sprite from '../images/icons.svg';
 
 const refs = {
   listEl: document.querySelector('.js-shopping-list'),
+  prevButton: document.querySelector('.pagination-prev'),
+  nextButton: document.querySelector('.pagination-next'),
+  currentSpan: document.querySelector('.pagination-current'),
 };
+refs.prevButton.addEventListener('click', handlePrevClick);
+refs.nextButton.addEventListener('click', handleNextClick);
+const booksPerPage = 3;
+let currentPage = 1;
 
 const savedBooks = load(LOCAL_STORAGE_KEY);
 const booksId = savedBooks ? savedBooks : [];
@@ -27,10 +34,22 @@ async function getBooks(ids) {
   try {
     const booksPromise = ids.map(id => booksApiService.fetchBookById(id));
     const result = await Promise.allSettled(booksPromise);
-    const books = result.map(({ value }) => value);
-    const markup = createBooksMarkup(books);
+    const books = result
+      .filter(({ status }) => status === 'fulfilled')
+      .map(({ value }) => value);
+
+    const totalBooks = books.length;
+    const totalPages = Math.ceil(totalBooks / booksPerPage);
+
+    const startIndex = (currentPage - 1) * booksPerPage;
+    const endIndex = startIndex + booksPerPage;
+    const booksToShow = books.slice(startIndex, endIndex);
+
+    const markup = createBooksMarkup(booksToShow);
     refs.listEl.innerHTML = markup;
     refs.listEl.addEventListener('click', handlerRemove);
+
+    updatePagination(currentPage, totalPages);
   } catch (error) {
     Notify.failure('HTTP request failed');
   }
@@ -41,17 +60,23 @@ function handlerRemove(e) {
   if (!e.target.closest('.js-remove')) {
     return;
   }
-  const id = e.target.closest('[id]').id;
+  const id = e.target.closest('[data-id]').dataset.id;
   refs.listEl.querySelector(`[data-id='${id}']`).remove();
   const updateBooksId = booksId.filter(bookId => bookId !== id);
   save(LOCAL_STORAGE_KEY, updateBooksId);
   if (!load(LOCAL_STORAGE_KEY).length) {
     refs.listEl.innerHTML = createDefault();
+    updatePagination(currentPage, 1);
+  }
+  else {
+    const totalBooks = updateBooksId.length;
+    const totalPages = Math.ceil(totalBooks / booksPerPage);
+    getBooks(updateBooksId);
+    updatePagination(currentPage, totalPages);
   }
 }
 
 function createBooksMarkup(books) {
-  console.log(books);
   return books
     .map(
       ({
@@ -73,7 +98,7 @@ function createBooksMarkup(books) {
           name.toLowerCase().includes('bookshop')
         ).url;
         return `
-     <li data-id="${_id}" class="js-book shopping-list-js-book"><div class="shopping-list-book-image-wrapper"><img src="${book_image}" alt="${title}" class="shopping-list-book-image" width="" height=""/></div><div><h2 class="shopping-list-title-book">${title}</h2><p class="shopping-list-list-name">${list_name}</p><p class="shopping-list-description">${description}</p><div class="shopping-list-author-links"><p class="shopping-list-book-author">${author}</p><ul class="shopping-list-links-list"><li><a href="${amazonLink}" class="shopping-list-links-icon-amazon" target="_blank" rel="noreferrer noopener"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" class="shopping-list-links-icon-apple" target="_blank" rel="noreferrer noopener"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" class="shopping-list-links-icon" target="_blank" rel="noreferrer noopener"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button id=${_id} class="js-remove shopping-list-btn-remove" type= "button"><svg class="icon-remove shopping-list-icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
+     <li data-id="${_id}" class="js-book shopping-list-js-book"><div class="shopping-list-book-image-wrapper"><img src="${book_image}" alt="${title}" class="shopping-list-book-image" width="" height=""/></div><div><h2 class="shopping-list-title-book">${title}</h2><p class="shopping-list-list-name">${list_name}</p><p class="shopping-list-description">${description}</p><div class="shopping-list-author-links"><p class="shopping-list-book-author">${author}</p><ul class="shopping-list-links-list"><li><a href="${amazonLink}" class="shopping-list-links-icon-amazon" target="_blank" rel="noreferrer noopener"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" class="shopping-list-links-icon-apple" target="_blank" rel="noreferrer noopener"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" class="shopping-list-links-icon" target="_blank" rel="noreferrer noopener"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button data-id="${_id}" class="js-remove shopping-list-btn-remove" type="button"><svg class="icon-remove shopping-list-icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
       }
     )
     .join('');
@@ -85,10 +110,7 @@ function createDefault() {
           media="(min-width: 768px)"
         />
         <source
-          srcset="
-            ${mobileImg}   1x,
-            ${mobileREtinaImg} 2x
-          "
+          srcset="${mobileImg} 1x, ${mobileREtinaImg} 2x"
           media="(min-width: 320px)"
         />
         <img
@@ -99,5 +121,45 @@ function createDefault() {
           height="198"
         />
       </picture>
-          </div>`;
+    </div>`;
 }
+
+function updatePagination(currentPage, totalPages) {
+  const prevButton = document.querySelector('.pagination-prev');
+  const nextButton = document.querySelector('.pagination-next');
+  const currentSpan = document.querySelector('.pagination-current');
+  const totalSpan = document.querySelector('.pagination-total');
+
+  currentSpan.textContent = currentPage;
+  totalSpan.textContent = `of ${totalPages}`;
+
+  if (currentPage === 1) {
+    prevButton.disabled = true;
+  } else {
+    prevButton.disabled = false;
+  }
+
+  if (currentPage === totalPages) {
+    nextButton.disabled = true;
+  } else {
+    nextButton.disabled = false;
+  }
+}
+
+function handlePrevClick() {
+  if (currentPage > 1) {
+    currentPage--;
+    getBooks(booksId);
+  }
+}
+
+function handleNextClick() {
+  const totalBooks = booksId.length;
+  const totalPages = Math.ceil(totalBooks / booksPerPage);
+
+  if (currentPage < totalPages) {
+    currentPage++;
+    getBooks(booksId);
+  }
+}
+
