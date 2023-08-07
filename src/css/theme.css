@@ -1,29 +1,96 @@
-.white-theme-color-Allcategories {
-  color: rgba(17, 17, 17, 0.6);
+.black-theme body {
+  background-color: rgba(32, 32, 36, 1);
 }
-.white-theme-color-Allcategories.black-theme {
+.black-theme .header-bookshelf,
+.nav-link-icon {
+  fill: rgba(243, 243, 243, 1);
+}
+.black-theme .nav-link {
+  color: rgba(243, 243, 243, 1);
+}
+
+.black-theme .button-hamburger {
+  stroke: rgba(243, 243, 243, 1);
+}
+.black-theme .all-categories {
   color: rgba(255, 255, 255, 0.6);
 }
-.white-theme-color-Allcategories.black-theme:active {
+.black-theme .all-categories-title {
+  color: rgba(255, 255, 255, 0.6);
+}
+.black-theme .category:hover {
   color: rgba(234, 198, 69, 1);
 }
-.white-theme-color-main-text {
+.black-theme .chosen-category {
+  color: rgba(234, 198, 69, 1);
+}
+.black-theme .backdrop {
+  background-color: rgba(17, 17, 17, 0.1);
+}
+
+.black-theme .all-categories-title:hover {
+  color: rgba(234, 198, 69, 1);
+}
+.black-theme .best-books-btn {
   color: rgba(17, 17, 17, 1);
 }
-.white-theme-color-main-text.black-theme {
+.black-theme .modal-links-link {
+  background-color: aliceblue;
+}
+.black-theme .home-title {
   color: rgba(255, 255, 255, 1);
 }
-.white-theme-color-modal {
-  background-color: rgba(255, 255, 255, 1);
-  border-color: rgba(17, 17, 17, 1);
+.black-theme .modal-book-title {
+  color: rgba(255, 255, 255, 1);
 }
-.white-theme-color-modal.black-theme {
+.black-theme .modal-book-description {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .modal-btn {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .group-book-title {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .best-book-title {
+  color: rgba(255, 255, 255, 1);
+}
+.black-theme .modal-window {
   background-color: rgba(17, 17, 17, 1);
-  border-color: rgba(255, 255, 255, 1);
 }
-.white-theme-color-svg {
-  fill: rgba(17, 17, 17, 1);
+
+.black-theme .modal-close-icon {
+  stroke: rgba(255, 255, 255, 1);
 }
-.white-theme-color-svg.black-theme {
-  fill: rgba(255, 255, 255, 1);
+.btnUp {
+  position: fixed;
+  left: 20px;
+  top: 50%;
+  transform: translate(-50%);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 10px 15px;
+  color: rgba(0, 51, 153, 0.5);
+  border: 1px solid rgba(0, 51, 153, 0.3);
+  background-color: rgba(0, 51, 153, 0.1);
+  border-radius: 25%;
+  display: none;
+}
+.show {
+  display: block;
+}
+.btnUp:hover {
+  color: rgba(0, 51, 153, 0.5);
+  border: 1px solid rgba(0, 51, 153, 0.8);
+  background-color: rgba(0, 51, 153, 0.2);
+}
+.black-theme .btnUp:hover {
+  color: rgba(234, 198, 69, 1);
+
+  background-color: rgba(234, 198, 69, 0.8);
+}
+.black-theme .btnUp {
+  color: rgba(234, 198, 69, 0.5);
+  border: 1px solid rgba(0, 51, 153, 0.3);
+  background-color: rgba(0, 51, 153, 0.5);
 }

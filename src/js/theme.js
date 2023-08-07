@@ -1,48 +1,20 @@
-const bodyEl = document.querySelector('body');
-bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
-
 export function onChangeTheme() {
-  const categoriesEl = document.querySelectorAll(
-    '.white-theme-color-Allcategories'
-  );
-  const mainTextEl = document.querySelectorAll('.white-theme-color-main-text');
-  const modalEl = document.querySelectorAll('.white-theme-color-modal');
-  const svgEl = document.querySelectorAll('.white-theme-color-svg');
-  if (bodyEl.style.backgroundColor === 'black') {
-    localStorage.setItem(
-      'themeColor',
-      (bodyEl.style.backgroundColor = 'white')
-    );
-    bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
-    categoriesEl.forEach(item => {
-      item.classList.remove('black-theme');
-    });
-    mainTextEl.forEach(item => {
-      item.classList.remove('black-theme');
-    });
-    modalEl.forEach(item => {
-      item.classList.remove('black-theme');
-    });
-    svgEl.forEach(item => {
-      item.classList.remove('black-theme');
-    });
+  if (localStorage.getItem('theme') === 'black-theme') {
+    localStorage.removeItem('theme');
   } else {
-    localStorage.setItem(
-      'themeColor',
-      (bodyEl.style.backgroundColor = 'black')
-    );
-    bodyEl.style.backgroundColor = localStorage.getItem('themeColor');
-    categoriesEl.forEach(item => {
-      item.classList.add('black-theme');
-    });
-    mainTextEl.forEach(item => {
-      item.classList.add('black-theme');
-    });
-    modalEl.forEach(item => {
-      item.classList.add('black-theme');
-    });
-    svgEl.forEach(item => {
-      item.classList.add('black-theme');
-    });
+    localStorage.setItem('theme', 'black-theme');
   }
+  addDarkTheme();
 }
+function addDarkTheme() {
+  try {
+    if (localStorage.getItem('theme') === 'black-theme') {
+      document.querySelector('html').classList.add('black-theme');
+    } else {
+      document.querySelector('html').classList.remove('black-theme');
+    }
+  } catch (error) {}
+}
+addDarkTheme();
+const switchEl = document.querySelector('.toggle-switch');
+switchEl.addEventListener('change', onChangeTheme);
