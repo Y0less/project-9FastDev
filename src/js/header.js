@@ -1,12 +1,19 @@
-import { save, load, remove } from './storage';
+// import { save, load, remove } from './storage';
 
-console.log('Hello Header!');
+// Функція для відкриття/
+(() => {
+  const refs = {
+    openModalBtn: document.querySelector('[data-modal-open]'),
+    closeModalBtn: document.querySelector('[data-modal-close]'),
+    modal: document.querySelector('[data-header-modal]'),
+  };
 
-// const burgerMenu = document.querySelector('.burger-menu');
+  refs.openModalBtn.addEventListener('click', toggleModal);
+  refs.closeModalBtn.addEventListener('click', toggleModal);
 
-// const overlay = document.querySelector('.menu');
+  function toggleModal() {
+    refs.modal.classList.toggle('is-open');
+  }
+})();
 
-// burgerMenu.addEventListener('click', function () {
-//   this.classList.toggle('close');
-//   overlay.classList.toggle('overlay');
-// });
+//

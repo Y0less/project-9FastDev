@@ -1,5 +1,5 @@
 <header class="header">
-  <div class="header-container">
+  <div class="header-container container">
     <a class="header-logo" href="/src/index.html">
       <svg class="header-logo-icon" width="24" height="24">
         <use href="../src/images/icons.svg#logotype"></use>
@@ -8,7 +8,6 @@
         <use href="../src/images/icons.svg#bookshelf"></use>
       </svg>
     </a>
-
     <nav class="nav">
       <ul class="nav-list list">
         <li class="nav-item">
@@ -42,16 +41,30 @@
         </div>
       </div>
 
-      <button class="js-open-menu" aria-label="burger-menu">
-        <svg class="button-hamburger is-open" width="28" height="28">
+      <button type="button" class="header-btn-modal-open" aria-label="burger-menu" data-modal-open>
+        <svg class="modal-icon-open" width="28" height="28">
           <use href="/src/images/icons.svg#icon-menu-hamburger"></use>
         </svg>
       </button>
-    </nav>
 
-    <div>
 
-    </div>
+      <!!-- MODAL -->
 
+        <div class="header-modal" data-header-modal>
+          <button type="button" class="header-btn-modal-close" aria-label="burger-menu" data-modal-close>
+            <svg class="modal-icon-close" width="28" height="28">
+              <use href="/src/images/icons.svg#icon-close"></use>
+            </svg>
+          </button>
+          <div class="container header-modal-container">
+            <a class="modal-sign-up" href="#">
+              Sign up
+              <svg class="arrow-right" width="20" height="20">
+                <use href="/src/images/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </a>
+          </div>
+          <img class="header-modal-img" src="/src/images/books-modal/books-group.png" alt="">
+        </div>
   </div>
 </header>
