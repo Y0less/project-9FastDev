@@ -15,24 +15,6 @@ console.log('Hello Header!');
 
   function toggleModal() {
     refs.modal.classList.toggle('is-open');
+    refs.openModalBtn.classList.toggle('is-close');
   }
 })();
-
-//
-
-// (() => {
-//   const changeIconOpen = document.querySelector('.header-btn-modal-open');
-//   const changeIconClose = document.querySelector('.header-btn-modal-close');
-//   changeIcon.addEventListener('click', () => {
-//     changeIconClose.style.display = 'block';
-//     changeIconOpen.style.display = 'none';
-//   });
-// })();
-
-// const burgerMenu = document.querySelector('.burger-menu');
-// const overlay = document.querySelector('.menu');
-
-// burgerMenu.addEventListener('click', function () {
-//   this.classList.toggle('close');
-//   overlay.classList.toggle('overlay');
-// });

@@ -142,7 +142,7 @@
   content: '';
   height: 20px;
   width: 20px;
-  left: 18px;
+  left: 2px;
   bottom: 2px;
   background: linear-gradient(180deg, #ffffff 0%, #f7f7f7 100%);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 2px 2px rgba(0, 0, 0, 0.1),
@@ -160,7 +160,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(-16px);
+  transform: translateX(16px);
 }
 
 .slider,
@@ -315,6 +315,7 @@ input:checked + .circle::before {
   left: 0;
   width: 100%;
   max-width: 375px;
+
   height: 100vh;
   transform: translate(0, 0%);
   background: radial-gradient(
@@ -335,13 +336,20 @@ input:checked + .circle::before {
   pointer-events: auto;
 }
 
+.header-btn-modal-open.is-close {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 500ms linear, visibility 500ms linear;
+}
+
 /* .header-modal-container {
   position: relative;
 } */
 
 .header-btn-modal-close {
   position: absolute;
-  top: -42;
+  top: -46;
   right: 20;
   background: none;
   border: none;
@@ -353,7 +361,6 @@ input:checked + .circle::before {
 
 .modal-icon-close {
   stroke: #111;
-  display: none;
 }
 
 .modal-sign-up {
