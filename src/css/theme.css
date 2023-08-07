@@ -21,6 +21,9 @@
 .black-theme .button-hamburger {
   stroke: rgba(243, 243, 243, 1);
 }
+.black-theme .modal-desc-text {
+  color: rgba(243, 243, 243, 1);
+}
 .black-theme .all-categories {
   color: rgba(255, 255, 255, 0.6);
 }
