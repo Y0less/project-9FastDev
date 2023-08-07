@@ -72,14 +72,14 @@ function createBooksMarkup(books) {
           name.toLowerCase().includes('bookshop')
         ).url;
         return `
-     <li data-id="${_id}" class="js-book"><div><img src="${book_image}" alt="${title}" width="" height=""/></div><div><h2>${title}</h2><p>${list_name}</p><p>${description}</p><div><p>${author}</p><ul><li><a href="${amazonLink}" target="_blank" rel="noreferrer noopener"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" target="_blank" rel="noreferrer noopener"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" target="_blank" rel="noreferrer noopener"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button id=${_id} class="js-remove" type= "button"><svg class="icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
+     <li data-id="${_id}" class="js-book shopping-list-js-book"><div class="shopping-list-book-image-wrapper"><img src="${book_image}" alt="${title}" class="shopping-list-book-image" width="" height=""/></div><div><h2 class="shopping-list-title-book">${title}</h2><p class="shopping-list-list-name">${list_name}</p><p class="shopping-list-description">${description}</p><div class="shopping-list-author-links"><p class="shopping-list-book-author">${author}</p><ul class="shopping-list-links-list"><li><a href="${amazonLink}" class="shopping-list-links-icon-amazon" target="_blank" rel="noreferrer noopener"><img src="${amazonImg}" alt="icon of Amazon" width="" height=""/></a></li><li><a href="${appleBooksLink}" class="shopping-list-links-icon-apple" target="_blank" rel="noreferrer noopener"><img src="${appleImg}" alt="icon of Apple-books" width="" height="" /></a></li><li><a href="${bookshopLink}" class="shopping-list-links-icon" target="_blank" rel="noreferrer noopener"><img src="${bookshopImg}" alt="icon of bookshop" width="" height="" /></a></li></ul></div><button id=${_id} class="js-remove shopping-list-btn-remove" type= "button"><svg class="icon-remove shopping-list-icon-remove" width="18px" height="18px"><use href="${sprite}#icon-dump"></use></svg></button></div></li>`;
       }
     )
     .join('');
 }
 
 function createDefault() {
-  return `<div><p>This page is empty, add some books and proceed to order.</p><picture><source
+  return `<div class="shopping-list-default"><p class="shopping-list-default-message">This page is empty, add some books and proceed to order.</p><picture><source
           srcset="${tabletDeskImg} 1x, ${tabletDesckRetinaImg} 2x"
           media="(min-width: 768px)"
         />
@@ -92,6 +92,7 @@ function createDefault() {
         />
         <img
           src="${mobileImg}"
+          class="shopping-list-default-picture"
           alt="stack of books"
           width="265"
           height="198"
