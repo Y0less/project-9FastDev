@@ -1,8 +1,11 @@
 .black-theme body {
   background-color: rgba(32, 32, 36, 1);
 }
+.black-theme .header-container {
+  border-color: rgba(243, 243, 243, 1);
+}
 .black-theme .header-bookshelf,
-.nav-link-icon {
+.black-theme .nav-link-icon {
   fill: rgba(243, 243, 243, 1);
 }
 .black-theme .nav-link {
@@ -34,8 +37,8 @@
 .black-theme .best-books-btn {
   color: rgba(17, 17, 17, 1);
 }
-.black-theme .modal-links-link {
-  background-color: aliceblue;
+.black-theme #amazon {
+  background-color: rgba(255, 255, 255, 1);
 }
 .black-theme .home-title {
   color: rgba(255, 255, 255, 1);
@@ -66,31 +69,31 @@
   position: fixed;
   left: 20px;
   top: 50%;
+  width: 54px;
+  height: 54px;
   transform: translate(-50%);
-  font-size: 18px;
   cursor: pointer;
-  padding: 10px 15px;
-  color: rgba(0, 51, 153, 0.5);
-  border: 1px solid rgba(0, 51, 153, 0.3);
-  background-color: rgba(0, 51, 153, 0.1);
-  border-radius: 25%;
+  padding: 15px 10px 10px;
+  border: 4px solid rgb(194, 183, 246);
+  border-radius: 50%;
+  background-color: rgba(79, 46, 232, 1);
   display: none;
 }
+
 .show {
   display: block;
 }
-.btnUp:hover {
-  color: rgba(0, 51, 153, 0.5);
-  border: 1px solid rgba(0, 51, 153, 0.8);
-  background-color: rgba(0, 51, 153, 0.2);
+.black-theme .shopping-list-default-message,
+.black-theme .shopping-list-title-book,
+.black-theme .shopping-list-title,
+.black-theme .shopping-list-description {
+  color: rgba(255, 255, 255, 1);
 }
-.black-theme .btnUp:hover {
-  color: rgba(234, 198, 69, 1);
+.black-theme .shopping-list-links-icon-amazon {
+  background-color: aliceblue;
+  border-color: transparent;
+}
 
-  background-color: rgba(234, 198, 69, 0.8);
-}
-.black-theme .btnUp {
-  color: rgba(234, 198, 69, 0.5);
-  border: 1px solid rgba(0, 51, 153, 0.3);
-  background-color: rgba(0, 51, 153, 0.5);
+.iconScroll {
+  color: rgba(255, 255, 255, 1);
 }
