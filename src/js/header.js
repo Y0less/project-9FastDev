@@ -2,11 +2,18 @@ import { save, load, remove } from './storage';
 
 console.log('Hello Header!');
 
-// const burgerMenu = document.querySelector('.burger-menu');
+// Функція для відкриття/
 
-// const overlay = document.querySelector('.menu');
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-header-modal]'),
+};
 
-// burgerMenu.addEventListener('click', function () {
-//   this.classList.toggle('close');
-//   overlay.classList.toggle('overlay');
-// });
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
+
+function toggleModal() {
+  refs.modal.classList.toggle('is-open');
+  refs.openModalBtn.classList.toggle('is-close');
+}
