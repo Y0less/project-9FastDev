@@ -327,7 +327,7 @@ input:checked + .circle::before {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 500ms linear, visibility 500ms linear;
+  transition: opacity 50ms linear, visibility 100ms linear;
 }
 
 .header-modal.is-open {
@@ -340,7 +340,7 @@ input:checked + .circle::before {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 500ms linear, visibility 500ms linear;
+  transition: opacity 50ms linear, visibility 50ms linear;
 }
 
 /* .header-modal-container {
@@ -395,4 +395,5 @@ input:checked + .circle::before {
   position: absolute;
   left: 0;
   bottom: 0;
+  z-index: -1;
 }
