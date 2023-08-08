@@ -24,6 +24,7 @@
   background-color: var(--white-color);
   border-radius: 18px;
   padding: 40px 24px;
+  border: 2px solid #111;
 }
 .modal-window-close-btn {
   position: absolute;
@@ -103,17 +104,18 @@
   padding: 0;
 }
 /* .modal-links-item {
-}
-.modal-links-link {
-} */
+}*/
 
-.modal-links-img {
+.modal-links-link {
   filter: grayscale(100%);
-  transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter, all 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* .modal-links-img {
+} */
 .modal-links-link:hover,
 .modal-links-link:focus {
-  filter: drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
+  filter: grayscale() drop-shadow(0px 3px 3px rgba(0, 0, 0, 0.35));
 }
 
 .modal-btn {
