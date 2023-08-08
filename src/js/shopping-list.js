@@ -9,6 +9,7 @@ import amazonImg from '../images/books-links/amazon.png';
 import appleImg from '../images/books-links/apple-books.png';
 import bookshopImg from '../images/books-links/bookshop.png';
 import sprite from '../images/icons.svg';
+import loadingToogle from './loader';
 
 const refs = {
   listEl: document.querySelector('.js-shopping-list'),
@@ -24,6 +25,7 @@ if (!booksId.length) {
 }
 
 async function getBooks(ids) {
+  loadingToogle();
   try {
     const booksPromise = ids.map(id => booksApiService.fetchBookById(id));
     const result = await Promise.allSettled(booksPromise);
@@ -34,6 +36,7 @@ async function getBooks(ids) {
   } catch (error) {
     Notify.failure('HTTP request failed');
   }
+  loadingToogle();
 }
 
 function handlerRemove(e) {
