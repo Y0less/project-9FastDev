@@ -24,6 +24,7 @@
   background-color: var(--white-color);
   border-radius: 18px;
   padding: 40px 24px;
+  border: 2px solid #111;
 }
 .modal-window-close-btn {
   position: absolute;
