@@ -52,6 +52,7 @@
 .best-book-link:hover .overlay,
 .book-image:hover .overlay {
   transform: translateY(0);
+  cursor: pointer;
 }
 
 .overlay-text {
