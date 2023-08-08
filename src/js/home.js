@@ -54,11 +54,18 @@ function addEventListenerForBTN() {
 }
 function createMarkupBooksList(bookslist) {
   const markupBooks = bookslist.map(({ author, book_image, title, _id }) => {
-    return ` <li id=${_id} class="js-book best-books-link">
-                    <img class="best-book-icon" src="${book_image}" alt="${title}"/>
-                    <h3 class="best-book-title">${title}</h3>
-                    <p class="best-book-author">${author}</p>
-                  </li>`;
+    return ` <li id="${_id}" class="js-book best-books-link">
+  <div class="book-image">
+    <img class="best-book-icon" src="${book_image}" alt="${title}" />
+    <div class="overlay">
+      <p class="overlay-text">quick view</p>
+    </div>
+  </div>
+  <div class="book-text">
+    <h3 class="best-book-title">${title}</h3>
+    <p class="best-book-author">${author}</p>
+  </div>
+</li>`;
   });
   return markupBooks.join(' ');
 }
@@ -156,11 +163,18 @@ function changeBooksPositioning() {
 
 function createBookGroupPage(books) {
   const markup = books.map(({ author, book_image, title, _id }) => {
-    return ` <li id=${_id} class="js-book group-book-link">
-                    <img class="group-book-icon" src="${book_image}" alt="${title}" width = 180px />
-                    <h4 class="group-book-title">${title}</h4>
-                    <span class="group-book-author">${author}</span>
-                  </li>`;
+    return `<li id="${_id}" class="js-book group-book-link">
+  <div class="book-image">
+    <img class="group-book-icon" src="${book_image}" alt="${title}" />
+    <div class="overlay">
+      <p class="overlay-text">quick view</p>
+    </div>
+  </div>
+  <div class="book-text">
+    <h4 class="group-book-title">${title}</h4>
+    <p class="group-book-author">${author}</p>
+  </div>
+</li>`;
   });
   topBooksList.innerHTML = markup.join(' ');
 }
