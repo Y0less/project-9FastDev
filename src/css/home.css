@@ -27,6 +27,41 @@
 .group-book-link {
   cursor: pointer;
 }
+.book-image {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  padding: 0px 52px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 0px 8px 8px;
+  background: #eac645;
+
+  transform: translateY(100%);
+  transition: transform 250ms ease-in-out;
+}
+
+.best-book-link:hover .overlay,
+.book-image:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay-text {
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -0.56px;
+  text-transform: uppercase;
+}
 .best-book-icon,
 .group-book-icon {
   width: 335px;
@@ -35,7 +70,6 @@
   background-repeat: no-repeat;
   background-size: contain;
   overflow: hidden;
-  margin-bottom: 14px;
   cursor: pointer;
 }
 
@@ -83,6 +117,11 @@
   border-radius: 40px;
   border: 2px solid #4f2ee8;
   margin-left: auto;
+  transition: transform 250ms ease-in-out;
+}
+.best-books-btn:hover,
+.best-books-btn:focus {
+  transform: scale(1.1);
 }
 
 /* styles for Top books */
