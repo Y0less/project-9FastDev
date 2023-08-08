@@ -14,8 +14,37 @@
 .black-theme .nav-link {
   color: rgba(243, 243, 243, 1);
 }
-
+.black-theme .modal {
+  background-color: black;
+  border-color: white;
+}
+.black-theme .modal-icon {
+  stroke: white;
+}
+.black-theme .input-style {
+  border-color: white;
+}
+.black-theme .input-style::placeholder {
+  color: white;
+}
+.black-theme .form-btn-sign {
+  background-color: white;
+  color: black;
+}
+.black-theme .form-btn {
+  color: rgba(246, 246, 246, 0.5);
+}
+.black-theme .form-btn.first {
+  color: #4f2ee8;
+}
+.black-theme .form-icon {
+  stroke: white;
+  fill: black;
+}
 .black-theme .modal-icon-open {
+  stroke: rgba(243, 243, 243, 1);
+}
+.black-theme .modal-icon-close {
   stroke: rgba(243, 243, 243, 1);
 }
 .black-theme .modal-desc-text {
@@ -24,6 +53,12 @@
 .black-theme .all-categories {
   color: rgba(255, 255, 255, 0.6);
 }
+.black-theme .all-categories::-webkit-scrollbar-thumb {
+  background-color: rgba(17, 17, 17, 0.6); /* color of the scroll thumb */
+  /* roundness of the scroll thumb */
+  /* creates padding around scroll thumb */
+}
+
 .black-theme .all-categories-title {
   color: rgba(255, 255, 255, 0.6);
 }
@@ -70,6 +105,7 @@
 }
 .black-theme .modal-window {
   background-color: rgba(17, 17, 17, 1);
+  border: white;
 }
 
 .black-theme .modal-close-icon {
