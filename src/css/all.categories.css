@@ -96,7 +96,14 @@ img {
   color: #4f2ee8;
 }
 .category {
-  height: 24px;
+  height: 23px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  cursor: pointer;
+  transition: transform 250ms ease-in-out;
 }
 .category:hover,
 .category:focus {
