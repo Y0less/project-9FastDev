@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/styles.css" />
     <script type="module" src="./shopping-list-main.js"></script>
   </head>
-  <body>
+  <body class="page-shopping-list">
     <!-- Header -->
     <include src="./partials/header.html"></include>
 
@@ -33,6 +33,12 @@
         </div>
 
         <ul></ul>
+        <div class="pagination">
+          <button class="pagination-prev" disabled>&laquo; Prev</button>
+          <span class="pagination-current">1</span>
+          <span class="pagination-total">of 1</span>
+          <button class="pagination-next">Next &raquo;</button>
+        </div>
       </section>
     </main>
     <dialog>
