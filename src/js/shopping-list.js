@@ -66,15 +66,26 @@ function handlerRemove(e) {
   save(LOCAL_STORAGE_KEY, updateBooksId);
   if (!load(LOCAL_STORAGE_KEY).length) {
     refs.listEl.innerHTML = createDefault();
-    updatePagination(currentPage, 1);
+    refs.listEl.classList.add('shopping-list-empty');
+
+    updatePagination(1, 1); 
+    hidePagination();
+  const pagination = document.querySelector('.pagination');
+    pagination.classList.add('hidden');
   }
   else {
     const totalBooks = updateBooksId.length;
     const totalPages = Math.ceil(totalBooks / booksPerPage);
     getBooks(updateBooksId);
     updatePagination(currentPage, totalPages);
+
+    refs.listEl.classList.remove('shopping-list-empty');
+    const pagination = document.querySelector('.pagination');
+      pagination.classList.remove('hidden');
   }
-}
+
+  
+  }
 
 function createBooksMarkup(books) {
   return books

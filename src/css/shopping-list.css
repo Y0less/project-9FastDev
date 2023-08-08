@@ -25,6 +25,9 @@
   .page-shopping-list .shopping-list-support-ukraine {
     display: none;
   }
+  .shopping-list-book-author {
+    overflow: hidden;
+  }
 }
 .shopping-list-title {
   font-size: 32;
@@ -79,6 +82,8 @@
   -webkit-box-orient: vertical;
 }
 .shopping-list-book-author {
+  position: absolute;
+  bottom: 14px;
   color: var(--description-color);
   font-weight: 400;
   margin-top: 0;
@@ -86,7 +91,6 @@
   font-size: 12px;
   font-style: italic;
   width: 97px;
-  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
@@ -121,14 +125,14 @@
   margin-bottom: 16px;
 }
 .shopping-list-author-links {
-  position: absolute;
-  justify-content: space-between;
-  align-items: baseline;
-  display: flex;
   bottom: 14px;
   width: 193px;
 }
 .shopping-list-links-list {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -207,7 +211,9 @@
   margin-top: 24px;
   margin-bottom: 24px;
 }
-
+/* .shopping-list-default + .pagination {
+  display: none;
+} */
 .pagination-prev,
 .pagination-next {
   border-radius: 36px;
@@ -241,7 +247,9 @@
   font-weight: 700;
   line-height: 1.22;
 }
-
+.shopping-list-empty {
+  display: none;
+}
 @media screen and (min-width: 768px) {
   .container {
     width: calc(704px + 2 * 32px);
@@ -287,9 +295,12 @@
   }
   .shopping-list-book-author {
     width: 120px;
+    bottom: 14px;
   }
   .shopping-list-links-list {
     gap: 16px;
+    bottom: 24px;
+    right: 24px;
   }
   .shopping-list-links-icon {
     width: 32px;
@@ -367,6 +378,5 @@
   }
   .shopping-list-book-author {
     width: auto;
-    bottom: 0;
   }
 }
