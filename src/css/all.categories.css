@@ -103,6 +103,7 @@ img {
   line-height: 1.125;
   letter-spacing: -0.32px;
   text-transform: uppercase;
+  height: 24px;
   color: #4f2ee8;
   cursor: pointer;
 }

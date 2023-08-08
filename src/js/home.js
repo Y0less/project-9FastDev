@@ -55,7 +55,12 @@ function addEventListenerForBTN() {
 function createMarkupBooksList(bookslist) {
   const markupBooks = bookslist.map(({ author, book_image, title, _id }) => {
     return ` <li id=${_id} class="js-book best-books-link">
-                    <img class="best-book-icon" src="${book_image}" alt="${title}"/>
+                        <img class="best-book-icon" src="${book_image}" alt="${title}"/>
+                    <div class="overlay">
+                    <p class="overlay-text">
+                      quick view 
+                    </p>
+                  </div>
                     <h3 class="best-book-title">${title}</h3>
                     <p class="best-book-author">${author}</p>
                   </li>`;
