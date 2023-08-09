@@ -65,11 +65,12 @@ function handlerRemove(e) {
   }
   const id = e.target.closest('[data-id]').dataset.id;
   refs.listEl.querySelector(`[data-id='${id}']`).remove();
+
   const updateBooksId = booksId.filter(bookId => bookId !== id);
-  save(LOCAL_STORAGE_KEY, updateBooksId);
+    save(LOCAL_STORAGE_KEY, updateBooksId);
+  
   if (!load(LOCAL_STORAGE_KEY).length) {
     refs.listEl.innerHTML = createDefault();
-    refs.listEl.classList.add('shopping-list-empty');
 
     updatePagination(1, 1); 
     hidePagination();
@@ -84,10 +85,10 @@ function handlerRemove(e) {
 
     refs.listEl.classList.remove('shopping-list-empty');
     const pagination = document.querySelector('.pagination');
-      pagination.classList.remove('hidden');
+    pagination.classList.remove('hidden');
+    
+    
   }
-
-  
   }
 
 function createBooksMarkup(books) {
