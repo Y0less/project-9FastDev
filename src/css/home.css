@@ -2,6 +2,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+/* styles for Top books */
 .home-title {
   color: #111;
   font-size: 32px;
@@ -125,36 +126,33 @@
 .best-books-btn:focus {
   transform: scale(1.1);
 }
-
-/* styles for Top books */
-@media screen and (max-width: 767px) {
-  .best-books {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
-  .best-books-list {
-    margin-bottom: 8px;
-  }
-  .best-books-link:not(:first-child) {
-    display: none;
-  }
-
-  .best-book-icon,
-  .group-book-icon {
-    width: 335px;
-    height: 485px;
-  }
-
-  /* styles for group books */
-  .category-book-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-  }
+.best-books-link:not(:first-child) {
+  display: none;
 }
+.best-books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.best-books-sections {
+  flex-basis: 335px;
+}
+.best-books-list {
+  margin-bottom: 8px;
+}
+.best-book-icon,
+.group-book-icon {
+  width: 335px;
+  height: 485px;
+}
+.category-book-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
 /* Mobile responsive container */
 @media screen and (min-width: 375px) {
   .container {
@@ -170,6 +168,9 @@
     width: calc(704px + 2 * 32px);
     padding-left: 32px;
     padding-right: 32px;
+  }
+  .best-books-link:not(:first-child) {
+    display: block;
   }
   .home-title {
     font-size: 48px;
@@ -193,12 +194,6 @@
     height: 316px;
   }
 
-  .best-books {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
   .best-books-link:nth-child(n + 4) {
     display: none;
   }
@@ -209,6 +204,7 @@
   /* styles for group books */
   .category-book-page {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     row-gap: 40px;
