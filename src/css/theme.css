@@ -107,13 +107,17 @@
   background-color: rgba(17, 17, 17, 1);
   border: white;
 }
+.black-theme .best-books-btn {
+  background-color: black;
+  color: white;
+}
 
 .black-theme .modal-close-icon {
   stroke: rgba(255, 255, 255, 1);
 }
 .btnUp {
   position: fixed;
-  left: 20px;
+  right: 2px;
   top: 50%;
   width: 54px;
   height: 54px;
