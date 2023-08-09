@@ -1,7 +1,7 @@
 import booksApiService from './books-service';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import loadingToogle from './loader';
-// Використовуємо методи booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) для HTTP-запитів
+// use methods booksApiService.fetchCategoryList(), booksApiService.fetchTopBooks(),booksApiService.fetchCategory(category), booksApiService.fetchBookById(bookId) for HTTP-requests
 const param = {
   topBooksList: document.querySelector('.best-books'),
   mainPage: document.querySelector('.main-content'),
