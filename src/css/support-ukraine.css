@@ -28,6 +28,8 @@ a {
 }
 
 .support__container {
+  width: 335px;
+  height: 352px;
   padding: 24px 40px 20px 40px;
   background: var(--support-ukraine);
   box-shadow: 0px 10px 10px rgba(245, 245, 247, 0.1);
@@ -129,7 +131,7 @@ a {
   }
 
   .swiper {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
     height: 292px;
   }
 
@@ -147,7 +149,7 @@ a {
 @media screen and (min-width: 1440px) {
   .support__container {
     width: 356px;
-    height: 490px;
+    height: 474px;
     padding-bottom: 24px;
   }
 }
