@@ -27,8 +27,10 @@ const booksId = savedBooks ? savedBooks : [];
 
 if (!booksId.length) {
   refs.listEl.innerHTML = createDefault();
+  hidePagination();
 } else {
   getBooks(booksId);
+  showPagination();
 }
 
 async function getBooks(ids) {
@@ -67,29 +69,47 @@ function handlerRemove(e) {
   refs.listEl.querySelector(`[data-id='${id}']`).remove();
 
   const updateBooksId = booksId.filter(bookId => bookId !== id);
-    save(LOCAL_STORAGE_KEY, updateBooksId);
-  
+  save(LOCAL_STORAGE_KEY, updateBooksId);
+
   if (!load(LOCAL_STORAGE_KEY).length) {
     refs.listEl.innerHTML = createDefault();
 
-    updatePagination(1, 1); 
+    currentPage = 1;
+    const totalPages = 1;
+    updatePagination(currentPage, totalPages);
     hidePagination();
-  const pagination = document.querySelector('.pagination');
+
+    const pagination = document.querySelector('.pagination');
     pagination.classList.add('hidden');
-  }
-  else {
+  } else {
     const totalBooks = updateBooksId.length;
     const totalPages = Math.ceil(totalBooks / booksPerPage);
+
+    if (currentPage > totalPages) {
+      currentPage = totalPages;
+    }
+
     getBooks(updateBooksId);
     updatePagination(currentPage, totalPages);
 
     refs.listEl.classList.remove('shopping-list-empty');
     const pagination = document.querySelector('.pagination');
     pagination.classList.remove('hidden');
-    
-    
   }
-  }
+}
+
+refs.prevButton.addEventListener('click', handlePrevClick);
+refs.nextButton.addEventListener('click', handleNextClick);
+
+function hidePagination() {
+  const pagination = document.querySelector('.pagination');
+  pagination.style.display = 'none';
+};
+
+function showPagination() {
+  const pagination = document.querySelector('.pagination');
+  pagination.style.display = 'flex';
+}
 
 function createBooksMarkup(books) {
   return books

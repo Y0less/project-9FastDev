@@ -204,16 +204,25 @@
   max-width: 244px;
   margin-bottom: 14px;
 }
+.shopping-list-pagination-container {
+  display: flex;
+}
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 24px;
-  margin-bottom: 24px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  border-color: var(--body-color);
+  padding: 10px 0;
+  border-radius: 36px;
+  background-color: var(--body-color);
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
 }
-/* .shopping-list-default + .pagination {
-  display: none;
-} */
+
 .pagination-prev,
 .pagination-next {
   border-radius: 36px;
@@ -362,10 +371,13 @@
     height: 474px;
   }
   .shopping-list-js-book {
-    height: auto;
+    height: 213px;
     min-width: 996px;
     gap: 24px;
     padding: 24px;
+  }
+  .shopping-list-links-list {
+    bottom: 30px;
   }
   .shopping-list-description {
     width: 808px;
@@ -378,5 +390,10 @@
   }
   .shopping-list-book-author {
     width: auto;
+    bottom: 30px;
+  }
+  .pagination {
+    left: 50%;
+    transform: translateX(-23%);
   }
 }
