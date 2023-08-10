@@ -1,3 +1,5 @@
+import { LS_AUTH_KEY, load } from './storage';
+
 const refs = {
   signUpBtn: document.querySelector('.js-sign-up'),
   backdrop: document.querySelector('.js-sign-up-backdrop'),
@@ -8,14 +10,14 @@ refs.signUpBtn.addEventListener('click', onSignUpBtnClick);
 
 function onSignUpBtnClick(e) {
   e.preventDefault();
-  showModalWin(refs.backdrop);
+  !load(LS_AUTH_KEY)?.token && showModalWin();
 }
 
-function showModalWin(element) {
-  element.classList.remove('is-hidden');
+function showModalWin() {
+  refs.backdrop.classList.remove('is-hidden');
   document.body.style.overflow = 'hidden';
   document.addEventListener('keydown', onEscPress);
-  element.addEventListener('click', onBackdropClick);
+  refs.backdrop.addEventListener('click', onBackdropClick);
   refs.closeModalBtn.addEventListener('click', onCloseModalBtnClick);
 }
 
@@ -37,3 +39,5 @@ function onEscPress(e) {
     onCloseModalBtnClick();
   }
 }
+
+export { showModalWin };

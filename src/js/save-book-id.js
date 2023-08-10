@@ -1,5 +1,8 @@
 import { hideAddToLSButton, showAddToLSButton } from './handle-book-click';
-import { LOCAL_STORAGE_KEY, load, save } from './storage';
+import { showModalWin } from './login-modal';
+import { LOCAL_STORAGE_KEY, LS_AUTH_KEY, load, save } from './storage';
+
+const userIsAuth = load(LS_AUTH_KEY)?.token;
 
 const refs = {
   actionLSBtn: document.querySelector('.js-modal-buttons'),
@@ -8,6 +11,10 @@ const refs = {
 refs.actionLSBtn.addEventListener('click', onActionLSBtnClick);
 
 function onActionLSBtnClick(e) {
+  if (!userIsAuth) {
+    showModalWin();
+    return;
+  }
   const savedBooksId = load(LOCAL_STORAGE_KEY);
   const booksId = savedBooksId ? savedBooksId : [];
   const targetId = e.target.id;
