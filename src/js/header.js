@@ -9,11 +9,10 @@ const refs = {
   pageBody: document.querySelector('body'),
 };
 
-console.dir(refs.closeMobileModalBtn);
 refs.openModalBtn.addEventListener('click', toggleModal);
 refs.closeMobileModalBtn.addEventListener('click', toggleModal);
 
-function toggleModal(e) {
+function toggleModal() {
   refs.pageBody.classList.toggle('disable-scroll');
   refs.modal.classList.toggle('is-open');
   refs.openModalBtn.classList.toggle('is-close');
