@@ -9,6 +9,7 @@ const refs = {
   pageBody: document.querySelector('body'),
 };
 
+console.dir(refs.closeMobileModalBtn);
 refs.openModalBtn.addEventListener('click', toggleModal);
 refs.closeMobileModalBtn.addEventListener('click', toggleModal);
 
