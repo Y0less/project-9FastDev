@@ -9,8 +9,6 @@ const refs = {
   pageBody: document.querySelector('body'),
 };
 
-console.log('pageBody :>> ', refs.pageBody);
-
 refs.openModalBtn.addEventListener('click', toggleModal);
 refs.closeMobileModalBtn.addEventListener('click', toggleModal);
 
@@ -20,11 +18,6 @@ function toggleModal(e) {
   refs.openModalBtn.classList.toggle('is-close');
   refs.closeMobileModalBtn.classList.toggle('visually-hidden');
 }
-
-document.body.scroll = 'no';
-// function disableScroll(params) {}
-
-// Функція для active-page
 
 function setActiveLink() {
   const links = document.querySelectorAll('nav a');
