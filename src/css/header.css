@@ -245,7 +245,7 @@ input:checked + .circle::before {
 
 /* Tablet and desktop styles */
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) and (max-width: 1440px) {
   .header-container {
     max-width: 768px;
     height: 72px;
@@ -319,6 +319,9 @@ input:checked + .circle::before {
     margin-left: 76px;
   }
   .header-btn-modal-close {
+    display: none;
+  }
+  .header-btn-modal-open {
     display: none;
   }
 }
