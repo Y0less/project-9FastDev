@@ -1,5 +1,4 @@
 import { save, load, remove } from './storage';
-import { save, load, remove } from './storage';
 
 // Функція для відкриття/
 (() => {
@@ -35,3 +34,5 @@ function setActiveLink() {
   });
 }
 window.addEventListener('load', setActiveLink);
+
+// Функція заборони скролу при відкритті модального вікна (бургер-меню)
