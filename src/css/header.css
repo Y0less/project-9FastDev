@@ -105,7 +105,6 @@
 }
 
 .header-btn-modal-open {
-  display: none;
   stroke: #111;
   fill: #111111;
   color: black;
@@ -226,21 +225,17 @@ input:checked + .circle::before {
   position: relative;
   display: inline-flex;
 }
+.nav {
+  display: none;
+}
 
 /* Media queries */
 
 @media screen and (max-width: 768px) {
-  .header-btn-modal-open {
-    display: block;
-  }
-
   .sign-up {
     display: none;
   }
 
-  .nav-list {
-    display: none;
-  }
   .visually-hidden {
     visibility: hidden;
     opacity: 0;
@@ -280,9 +275,13 @@ input:checked + .circle::before {
   }
 
   .nav {
+    display: flex;
     margin-left: 24px;
   }
   .header-btn-modal-close {
+    display: none;
+  }
+  .header-btn-modal-open {
     display: none;
   }
 }
