@@ -17,21 +17,3 @@ import { save, load, remove } from './storage';
     refs.openModalBtn.classList.toggle('is-close');
   }
 })();
-
-// Функція для active-page
-
-function setActiveLink() {
-  const links = document.querySelectorAll('nav a');
-  links.forEach(link => {
-    link.classList.remove('active-page');
-  });
-
-  const currentURL = window.location.href;
-
-  links.forEach(link => {
-    if (link.href === currentURL) {
-      link.classList.add('active-page');
-    }
-  });
-}
-window.addEventListener('load', setActiveLink);
