@@ -12,3 +12,5 @@ import './js/save-book-id.js';
 import './js/scroll-up';
 
 import './js/loader.js';
+import './js/firebase.js';
+import './js/register.js';

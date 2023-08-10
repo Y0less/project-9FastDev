@@ -1,6 +1,6 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import booksApiService from './books-service';
-import { save, load, LOCAL_STORAGE_KEY } from './storage';
+import { save, load, LOCAL_STORAGE_KEY, LS_AUTH_KEY } from './storage';
 import mobileImg from '../images/shopping-list/mobile.png';
 import mobileREtinaImg from '../images/shopping-list/mobile@2x.png';
 import tabletDeskImg from '../images/shopping-list/tablet-desck.png';
@@ -10,6 +10,8 @@ import appleImg from '../images/books-links/apple-books.png';
 import bookshopImg from '../images/books-links/bookshop.png';
 import sprite from '../images/icons.svg';
 import loadingToogle from './loader';
+
+!load(LS_AUTH_KEY)?.token && window.history.back();
 
 const refs = {
   listEl: document.querySelector('.js-shopping-list'),
@@ -104,7 +106,7 @@ refs.nextButton.addEventListener('click', handleNextClick);
 function hidePagination() {
   const pagination = document.querySelector('.pagination');
   pagination.style.display = 'none';
-};
+}
 
 function showPagination() {
   const pagination = document.querySelector('.pagination');
@@ -197,4 +199,3 @@ function handleNextClick() {
     getBooks(booksId);
   }
 }
-

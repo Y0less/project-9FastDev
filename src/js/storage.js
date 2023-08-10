@@ -1,4 +1,5 @@
 const LOCAL_STORAGE_KEY = 'shoppingList';
+const LS_AUTH_KEY = 'authUser';
 
 const save = (key, value) => {
   try {
@@ -32,4 +33,4 @@ const remove = key => {
   }
 };
 
-export { save, load, remove, LOCAL_STORAGE_KEY };
+export { save, load, remove, LOCAL_STORAGE_KEY, LS_AUTH_KEY };
