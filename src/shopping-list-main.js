@@ -10,4 +10,14 @@ if (activePageLink) {
   activePageLink.classList.remove('active-page');
 }
 
+const activePageLinkMobile = document.querySelector(
+  '.modal-nav-link.active-page'
+);
+if (activePageLinkMobile) {
+  activePageLinkMobile.classList.remove('active-page');
+}
+
 document.querySelector('.js-shopping-list-page').classList.add('active-page');
+document
+  .querySelector('.js-shopping-list-page-mobile')
+  .classList.add('active-page');

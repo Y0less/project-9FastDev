@@ -14,3 +14,4 @@ import './js/scroll-up';
 import './js/loader.js';
 
 document.querySelector('.js-home-page').classList.add('active-page');
+document.querySelector('.js-home-page-mobile').classList.add('active-page');
