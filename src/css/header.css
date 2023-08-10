@@ -354,6 +354,10 @@ input:checked + .circle::before {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.disable-scroll {
+  overflow: hidden
+}
+
 .header-btn-modal-open.is-close {
   opacity: 0;
   visibility: hidden;
