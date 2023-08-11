@@ -14,3 +14,6 @@ import './js/scroll-up';
 import './js/loader.js';
 import './js/firebase.js';
 import './js/register.js';
+
+document.querySelector('.js-home-page').classList.add('active-page');
+document.querySelector('.js-home-page-mobile').classList.add('active-page');
