@@ -2,10 +2,12 @@ import { LS_AUTH_KEY, load } from './storage';
 
 const refs = {
   signUpBtn: document.querySelector('.js-sign-up'),
+  mobSignUpBtn: document.querySelector('.modal-sign-up'),
   backdrop: document.querySelector('.js-sign-up-backdrop'),
   closeModalBtn: document.querySelector('.js-sign-up-close'),
 };
 
+refs.mobSignUpBtn.addEventListener('click', onSignUpBtnClick);
 refs.signUpBtn.addEventListener('click', onSignUpBtnClick);
 
 function onSignUpBtnClick(e) {

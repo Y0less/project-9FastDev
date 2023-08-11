@@ -5,11 +5,14 @@ import {
 } from 'firebase/auth';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-import { LS_AUTH_KEY, save } from './storage';
+import { LS_AUTH_KEY, load, save } from './storage';
 
 const refs = {
+  userProfileCard: document.querySelector('.user-card-container'),
+  regBtn: document.querySelector('.sign-in-up-ig'),
   regForm: document.querySelector('.js-reg-form'),
   backdrop: document.querySelector('.js-sign-up-backdrop'),
+  mobUserProfileCard: document.querySelector('.mob-text-container'),
 };
 
 refs.regForm.addEventListener('submit', onRegisterFormSubmit);
@@ -21,11 +24,24 @@ async function onRegisterFormSubmit(e) {
   const email = formData.get('email');
   const password = formData.get('password');
   const auth = getAuth();
-  const user = await registerUser(auth, email, password);
-  await updateUserName(name);
-  saveAuthInfo(user, name);
+  try {
+    const user = await registerUser(auth, email, password);
+    await updateUserName(name);
+    saveAuthInfo(user, name);
+    showUserProfile();
+    Notify.success('User successfully registered');
+  } catch (error) {
+    Notify.failure('Register failed');
+  }
+}
+
+function showUserProfile() {
+  refs.regBtn.style.display = 'none';
+  refs.userProfileCard.style.display = 'block';
+  refs.userProfileCard.querySelector('.js-user-name').textContent =
+    load(LS_AUTH_KEY).name;
   refs.backdrop.style.display = 'none';
-  Notify.success('User successfully registered');
+  refs.mobUserProfileCard.style.display = 'flex';
 }
 
 function showPrivateLinks() {}
