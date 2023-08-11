@@ -1,24 +1,23 @@
 import { save, load, remove } from './storage';
-import { save, load, remove } from './storage';
 
 // Функція для відкриття/
-(() => {
-  const refs = {
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-header-modal]'),
-  };
 
-  refs.openModalBtn.addEventListener('click', toggleModal);
-  refs.closeModalBtn.addEventListener('click', toggleModal);
+const refs = {
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  closeMobileModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-header-modal]'),
+  pageBody: document.querySelector('body'),
+};
 
-  function toggleModal() {
-    refs.modal.classList.toggle('is-open');
-    refs.openModalBtn.classList.toggle('is-close');
-  }
-})();
+refs.openModalBtn.addEventListener('click', toggleModal);
+refs.closeMobileModalBtn.addEventListener('click', toggleModal);
 
-// Функція для active-page
+function toggleModal() {
+  refs.pageBody.classList.toggle('disable-scroll');
+  refs.modal.classList.toggle('is-open');
+  refs.openModalBtn.classList.toggle('is-close');
+  refs.closeMobileModalBtn.classList.toggle('visually-hidden');
+}
 
 function setActiveLink() {
   const links = document.querySelectorAll('nav a');
@@ -35,3 +34,5 @@ function setActiveLink() {
   });
 }
 window.addEventListener('load', setActiveLink);
+
+// Функція заборони скролу при відкритті модального вікна (бургер-меню)
